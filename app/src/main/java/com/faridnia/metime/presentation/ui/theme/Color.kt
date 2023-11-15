@@ -1,4 +1,4 @@
-package com.faridnia.metime.ui.theme
+package com.faridnia.metime.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
