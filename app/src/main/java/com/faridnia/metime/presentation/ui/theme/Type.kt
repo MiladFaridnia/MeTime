@@ -1,4 +1,4 @@
-package com.faridnia.metime.ui.theme
+package com.faridnia.metime.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

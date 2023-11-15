@@ -1,4 +1,4 @@
-package com.faridnia.metime
+package com.faridnia.metime.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.faridnia.metime.ui.theme.MeTimeTheme
+import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
