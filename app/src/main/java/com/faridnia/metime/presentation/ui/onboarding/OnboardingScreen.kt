@@ -31,8 +31,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
-import com.faridnia.metime.presentation.ui.component.PrimaryButton
-import com.faridnia.metime.presentation.ui.component.SecondaryButton
+import com.faridnia.metime.presentation.component.PrimaryButton
+import com.faridnia.metime.presentation.component.SecondaryButton
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 import com.faridnia.metime.util.LightAndDarkPreview
 
@@ -111,7 +111,7 @@ fun OnboardingScreen(
             )
         )
 
-        Spacer(modifier = Modifier.height(50.dp))
+        Spacer(modifier = Modifier.weight(1.0f))
 
         Row(
             horizontalArrangement = Arrangement.spacedBy(15.dp, Alignment.Start),
@@ -124,7 +124,6 @@ fun OnboardingScreen(
                 isEnabled = true,
                 isLoading = false
             ) {
-
             }
 
             PrimaryButton(
@@ -133,10 +132,11 @@ fun OnboardingScreen(
                 isEnabled = true,
                 isLoading = false
             ) {
-
             }
-
         }
+
+        Spacer(modifier = Modifier.height(40.dp))
+
     }
 }
 

@@ -1,4 +1,4 @@
-package com.faridnia.metime.presentation.ui.component
+package com.faridnia.metime.presentation.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
