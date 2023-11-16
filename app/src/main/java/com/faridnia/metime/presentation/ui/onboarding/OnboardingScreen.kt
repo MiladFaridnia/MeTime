@@ -2,19 +2,21 @@ package com.faridnia.metime.presentation.ui.onboarding
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -29,6 +31,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
+import com.faridnia.metime.presentation.ui.component.PrimaryButton
+import com.faridnia.metime.presentation.ui.component.SecondaryButton
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 import com.faridnia.metime.util.LightAndDarkPreview
 
@@ -99,7 +103,7 @@ fun OnboardingScreen(
             text = "Follow the steps to schedule your next appointment with us.",
             style = TextStyle(
                 fontSize = 18.sp,
-                lineHeight = 22.48.sp,
+                lineHeight = 22.sp,
                 fontFamily = FontFamily(Font(R.font.raleway_light)),
                 fontWeight = FontWeight(500),
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -107,6 +111,32 @@ fun OnboardingScreen(
             )
         )
 
+        Spacer(modifier = Modifier.height(50.dp))
+
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(15.dp, Alignment.Start),
+            verticalAlignment = Alignment.Top,
+        ) {
+
+            SecondaryButton(
+                modifier = Modifier.weight(1.0f),
+                buttonText = "Skip",
+                isEnabled = true,
+                isLoading = false
+            ) {
+
+            }
+
+            PrimaryButton(
+                modifier = Modifier.weight(1.0f),
+                buttonText = "Start",
+                isEnabled = true,
+                isLoading = false
+            ) {
+
+            }
+
+        }
     }
 }
 
