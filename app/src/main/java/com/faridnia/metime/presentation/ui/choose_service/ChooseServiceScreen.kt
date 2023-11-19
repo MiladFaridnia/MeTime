@@ -124,10 +124,10 @@ fun ChooseServiceScreen(
 
 
 fun getPhotoItems() = listOf(
-    ServiceItem(R.drawable.nail, "Nail"),
-    ServiceItem(R.drawable.eyebrowns, "Eyebrowns"),
-    ServiceItem(R.drawable.massage, "Massage"),
-    ServiceItem(R.drawable.hair, "Hair"),
+    Service(R.drawable.nail, "Nail"),
+    Service(R.drawable.eyebrowns, "Eyebrowns"),
+    Service(R.drawable.massage, "Massage"),
+    Service(R.drawable.hair, "Hair"),
 )
 
 @Composable
