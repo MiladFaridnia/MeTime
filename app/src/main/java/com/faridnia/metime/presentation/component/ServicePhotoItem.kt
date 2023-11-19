@@ -23,21 +23,21 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.faridnia.metime.R
-import com.faridnia.metime.presentation.ui.choose_service.ServiceItem
+import com.faridnia.metime.presentation.ui.choose_service.Service
 import com.faridnia.metime.util.LightAndDarkPreview
 
 @LightAndDarkPreview
 @Composable
-fun PhotoItem() {
+fun PreviewPhotoItem() {
     MaterialTheme {
         PhotoItem(
-            serviceItem = ServiceItem(R.drawable.nail, "Nail")
+            service = Service(R.drawable.nail, "Nail")
         )
     }
 }
 
 @Composable
-fun PhotoItem(serviceItem: ServiceItem) {
+fun PhotoItem(service: Service) {
     Column(
         verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -47,13 +47,13 @@ fun PhotoItem(serviceItem: ServiceItem) {
                 .width(125.dp)
                 .height(125.dp)
                 .clip(RoundedCornerShape(10.dp)),
-            painter = painterResource(id = serviceItem.photoResourceId),
-            contentDescription = serviceItem.title,
+            painter = painterResource(id = service.photoResourceId),
+            contentDescription = service.title,
             contentScale = ContentScale.FillBounds
         )
 
         Text(
-            text = serviceItem.title,
+            text = service.title,
             style = TextStyle(
                 fontSize = 18.sp,
                 fontFamily = FontFamily(Font(R.font.raleway_light)),
