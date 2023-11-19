@@ -34,7 +34,11 @@ import com.faridnia.metime.util.LightAndDarkPreview
 fun PreviewServiceType() {
     MaterialTheme {
         ServiceTypeItem(
-            ServiceType(photoResourceId = R.drawable.gel_pedicure, title = "Pedicure", price = 15)
+            ServiceType(
+                photoResourceId = R.drawable.gel_pedicure,
+                title = "Pedicure",
+                price = 15
+            )
         )
     }
 }
@@ -57,6 +61,7 @@ fun ServiceTypeItem(serviceType: ServiceType) {
         )
 
         Column(
+            modifier = Modifier.weight(1.0f),
             verticalArrangement = Arrangement.spacedBy(0.dp, Alignment.Top),
             horizontalAlignment = Alignment.Start,
         ) {
