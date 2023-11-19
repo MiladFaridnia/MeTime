@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -29,6 +30,7 @@ import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
 import com.faridnia.metime.presentation.component.ExpertItem
 import com.faridnia.metime.presentation.component.PagerIndicator
+import com.faridnia.metime.presentation.component.SecondaryButton
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 import com.faridnia.metime.util.LightAndDarkPreview
 
@@ -95,12 +97,22 @@ fun ChooseExpertScreen(
             modifier = Modifier.padding(16.dp)
         ) {
             items(getExperts()) {
-               ExpertItem(it)
+                ExpertItem(it)
             }
         }
 
-        Spacer(modifier = Modifier.height(40.dp))
+        Spacer(modifier = Modifier.weight(1.0f))
 
+        SecondaryButton(
+            modifier = Modifier.fillMaxWidth(),
+            buttonText = "I don‘t have a preference",
+            isEnabled = true,
+            isLoading = false
+        ) {
+
+        }
+
+        Spacer(modifier = Modifier.height(40.dp))
     }
 }
 
