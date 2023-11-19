@@ -33,6 +33,7 @@ import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
 import com.faridnia.metime.presentation.component.PrimaryButton
 import com.faridnia.metime.presentation.component.SecondaryButton
+import com.faridnia.metime.presentation.nav_graph.Screen
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 import com.faridnia.metime.util.LightAndDarkPreview
 
@@ -132,6 +133,7 @@ fun OnboardingScreen(
                 isEnabled = true,
                 isLoading = false
             ) {
+                navController.navigate(Screen.OnboardingScreen.route)
             }
         }
 

@@ -13,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
@@ -33,9 +32,9 @@ import com.faridnia.metime.util.LightAndDarkPreview
 
 @LightAndDarkPreview
 @Composable
-fun PreviewChooseServiceScreen() {
+fun PreviewLoginBottomSheetScreen() {
     MeTimeTheme {
-        ChooseServiceScreen(
+        LoginBottomSheetScreen(
             state = remember { mutableStateOf(LoginBottomSheetState()) },
             navController = rememberNavController()
         )
@@ -43,7 +42,7 @@ fun PreviewChooseServiceScreen() {
 }
 
 @Composable
-fun ChooseServiceScreen(
+fun LoginBottomSheetScreen(
     state: State<LoginBottomSheetState>,
     navController: NavController
 ) {
