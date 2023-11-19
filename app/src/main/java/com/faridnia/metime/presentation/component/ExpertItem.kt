@@ -4,10 +4,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -16,31 +14,36 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.faridnia.metime.R
-import com.faridnia.metime.presentation.ui.choose_service_type.ServiceType
+import com.faridnia.metime.presentation.ui.choose_expert.Expert
 import com.faridnia.metime.util.LightAndDarkPreview
 
 @LightAndDarkPreview
 @Composable
-fun PreviewServiceType() {
+fun PreviewExpertItem() {
     MaterialTheme {
-        ServiceTypeItem(
-            ServiceType(photoResourceId = R.drawable.gel_pedicure, title = "Pedicure", price = 15)
+        ExpertItem(
+            Expert(
+                photoResourceId = R.drawable.gel_pedicure,
+                title = "Beth Jess",
+                description = "Nail designer, Manicure expert",
+                rate = 4.2
+            )
         )
     }
 }
 
 @Composable
-fun ServiceTypeItem(serviceType: ServiceType) {
+fun ExpertItem(expert: Expert) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(5.dp, Alignment.Start),
@@ -51,17 +54,18 @@ fun ServiceTypeItem(serviceType: ServiceType) {
                 .width(72.dp)
                 .height(72.dp)
                 .clip(RoundedCornerShape(10.dp)),
-            painter = painterResource(id = serviceType.photoResourceId),
-            contentDescription = serviceType.title,
+            painter = painterResource(id = expert.photoResourceId),
+            contentDescription = expert.title,
             contentScale = ContentScale.Crop
         )
 
         Column(
+            modifier = Modifier.weight(1.0f),
             verticalArrangement = Arrangement.spacedBy(0.dp, Alignment.Top),
             horizontalAlignment = Alignment.Start,
         ) {
             Text(
-                text = serviceType.title,
+                text = expert.title,
                 style = TextStyle(
                     fontSize = 16.sp,
                     lineHeight = 24.sp,
@@ -72,7 +76,7 @@ fun ServiceTypeItem(serviceType: ServiceType) {
             )
 
             Text(
-                text = "${serviceType.price} $",
+                text = expert.description,
                 style = TextStyle(
                     fontSize = 16.sp,
                     lineHeight = 24.sp,
@@ -83,18 +87,23 @@ fun ServiceTypeItem(serviceType: ServiceType) {
             )
         }
 
-        Spacer(modifier = Modifier.weight(1.0f))
-
         Image(
             modifier = Modifier
-                .padding(1.dp)
-                .width(24.dp)
-                .height(24.dp),
-            painter = painterResource(id = R.drawable.arrow_right),
+                .width(22.dp)
+                .height(22.dp),
+            painter = painterResource(id = R.drawable.star),
             contentDescription = "Arrow ",
             contentScale = ContentScale.None,
-            colorFilter = ColorFilter.tint(
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+
+        Text(
+            text = "${expert.rate}",
+            style = TextStyle(
+                fontSize = 14.sp,
+                fontFamily = FontFamily(Font(R.font.raleway_light)),
+                fontWeight = FontWeight(500),
+                color = MaterialTheme.colorScheme.onSurface,
+                textAlign = TextAlign.Center,
             )
         )
     }
