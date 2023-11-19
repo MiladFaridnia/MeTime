@@ -36,7 +36,7 @@ import com.faridnia.metime.util.LightAndDarkPreview
 @Composable
 fun PreviewChooseServiceScreen() {
     MeTimeTheme {
-        ChooseServiceScreen(
+        ChooseServiceTypeScreen(
             state = remember { mutableStateOf(ChooseServiceTypeState()) },
             onEvent = {},
             navController = rememberNavController()
@@ -45,7 +45,7 @@ fun PreviewChooseServiceScreen() {
 }
 
 @Composable
-fun ChooseServiceScreen(
+fun ChooseServiceTypeScreen(
     state: State<ChooseServiceTypeState>,
     onEvent: (ChooseServiceTypeEvent) -> Unit,
     navController: NavController
