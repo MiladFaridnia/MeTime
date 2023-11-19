@@ -84,7 +84,7 @@ fun ChooseServiceScreen(
 
         Spacer(modifier = Modifier.weight(1.0f))
 
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(horizontalAlignment = CenterHorizontally) {
 
             PrimaryButton(
                 modifier = Modifier.fillMaxWidth(),
