@@ -133,7 +133,7 @@ fun OnboardingScreen(
                 isEnabled = true,
                 isLoading = false
             ) {
-                navController.navigate(Screen.OnboardingScreen.route)
+                navController.navigate(Screen.ChooseServiceScreen.route)
             }
         }
 

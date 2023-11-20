@@ -1,6 +1,7 @@
 package com.faridnia.metime.presentation.component
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -31,14 +32,21 @@ import com.faridnia.metime.util.LightAndDarkPreview
 fun PreviewPhotoItem() {
     MaterialTheme {
         PhotoItem(
-            service = Service(R.drawable.nail, "Nail")
+            service = Service(R.drawable.nail, "Nail"),
+            onClick = {}
         )
     }
 }
 
 @Composable
-fun PhotoItem(service: Service) {
+fun PhotoItem(
+    service: Service,
+    onClick: (service: Service) -> Unit
+) {
     Column(
+        modifier = Modifier.clickable {
+            onClick.invoke(service)
+        },
         verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
