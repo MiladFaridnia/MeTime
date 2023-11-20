@@ -1,6 +1,7 @@
 package com.faridnia.metime.presentation.component
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -38,15 +39,23 @@ fun PreviewServiceType() {
                 photoResourceId = R.drawable.gel_pedicure,
                 title = "Pedicure",
                 price = 15
-            )
+            ),
+            onClick = {}
         )
     }
 }
 
 @Composable
-fun ServiceTypeItem(serviceType: ServiceType) {
+fun ServiceTypeItem(
+    serviceType: ServiceType,
+    onClick: (serviceType: ServiceType) -> Unit
+) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable {
+                onClick.invoke(serviceType)
+            },
         horizontalArrangement = Arrangement.spacedBy(5.dp, Alignment.Start),
         verticalAlignment = Alignment.CenterVertically,
     ) {

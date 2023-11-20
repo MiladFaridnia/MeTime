@@ -39,6 +39,7 @@ import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
 import com.faridnia.metime.presentation.component.PhotoItem
 import com.faridnia.metime.presentation.component.SecondaryButton
+import com.faridnia.metime.presentation.nav_graph.Screen
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 import com.faridnia.metime.util.LightAndDarkPreview
 
@@ -103,7 +104,9 @@ fun ChooseServiceScreen(
             columns = GridCells.Fixed(2),
         ) {
             items(getPhotoItems()) {
-                PhotoItem(it)
+                PhotoItem(it) {
+                    navController.navigate(Screen.ChooseServiceTypeScreen.route)
+                }
             }
         }
 
@@ -115,6 +118,7 @@ fun ChooseServiceScreen(
             isEnabled = true,
             isLoading = false
         ) {
+
         }
 
         Spacer(modifier = Modifier.height(40.dp))

@@ -29,6 +29,7 @@ import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
 import com.faridnia.metime.presentation.component.PagerIndicator
 import com.faridnia.metime.presentation.component.ServiceTypeItem
+import com.faridnia.metime.presentation.nav_graph.Screen
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 import com.faridnia.metime.util.LightAndDarkPreview
 
@@ -95,7 +96,9 @@ fun ChooseServiceTypeScreen(
             modifier = Modifier.padding(16.dp)
         ) {
             items(getServiceTypes()) {
-                ServiceTypeItem(it)
+                ServiceTypeItem(it){
+                    navController.navigate(Screen.ChooseExpertScreen.route)
+                }
             }
         }
 
