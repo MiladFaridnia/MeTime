@@ -119,31 +119,31 @@ fun ChooseExpertScreen(
 fun getExperts() = listOf(
     Expert(
         photoResourceId = R.drawable.manicure,
-        title = "Anna Smith",
+        name = "Anna Smith",
         description = "Nail designer",
         rate = 4.8
     ),
     Expert(
         photoResourceId = R.drawable.nail_1,
-        title = "Mrs Appleberry",
+        name = "Mrs Appleberry",
         description = "Nail painter",
         rate = 4.6
     ),
     Expert(
         photoResourceId = R.drawable.gel_pedicure,
-        title = "Sara Jordan",
+        name = "Sara Jordan",
         description = "Nail designer, painter",
         rate = 4.5
     ),
     Expert(
         photoResourceId = R.drawable.gel_pedicure,
-        title = "Beth Jess",
+        name = "Beth Jess",
         description = "Nail designer, Manicure expert",
         rate = 4.2
     ),
     Expert(
         photoResourceId = R.drawable.acrylic_extention,
-        title = "Mary Oven",
+        name = "Mary Oven",
         description = "Nail Designer",
         rate = 4.2
     )

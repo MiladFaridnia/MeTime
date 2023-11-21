@@ -34,7 +34,7 @@ fun PreviewExpertItem() {
         ExpertItem(
             Expert(
                 photoResourceId = R.drawable.gel_pedicure,
-                title = "Beth Jess",
+                name = "Beth Jess",
                 description = "Nail designer, Manicure expert",
                 rate = 4.2
             )
@@ -55,7 +55,7 @@ fun ExpertItem(expert: Expert) {
                 .height(72.dp)
                 .clip(RoundedCornerShape(10.dp)),
             painter = painterResource(id = expert.photoResourceId),
-            contentDescription = expert.title,
+            contentDescription = expert.name,
             contentScale = ContentScale.Crop
         )
 
@@ -65,7 +65,7 @@ fun ExpertItem(expert: Expert) {
             horizontalAlignment = Alignment.Start,
         ) {
             Text(
-                text = expert.title,
+                text = expert.name,
                 style = TextStyle(
                     fontSize = 16.sp,
                     lineHeight = 24.sp,
