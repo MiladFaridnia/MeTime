@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Manicure",
+    "image": "https://images.unsplash.com/photo-1571290274554-6a2eaa771e5f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 55.2,
+    "id": "1",
+    "service_id": "1"
+  },
+  {
+    "title": "Pedicure",
+    "image": "https://images.unsplash.com/photo-1571290274554-6a2eaa771e5f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 35.2,
+    "id": "2",
+    "service_id": "1"
+  },
+  {
+    "title": "Gel Manicure",
+    "image": "https://images.unsplash.com/photo-1571290274554-6a2eaa771e5f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 28,
+    "id": "3",
+    "service_id": "1"
+  },
+  {
+    "title": "Gel Pedicure",
+    "image": "https://images.unsplash.com/photo-1571290274554-6a2eaa771e5f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 38,
+    "id": "4",
+    "service_id": "1"
+  },
+  {
+    "title": "Vip Manicure",
+    "image": "https://images.unsplash.com/photo-1571290274554-6a2eaa771e5f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 50,
+    "id": "5",
+    "service_id": "1"
+  }
+]
