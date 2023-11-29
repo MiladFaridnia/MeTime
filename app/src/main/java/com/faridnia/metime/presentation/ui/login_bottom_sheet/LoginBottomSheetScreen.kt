@@ -61,7 +61,7 @@ fun LoginBottomSheetScreen(
             style = TextStyle(
                 fontSize = 32.sp,
                 lineHeight = 41.6.sp,
-                fontFamily = FontFamily(Font(R.font.montserrat_regular)),
+                fontFamily = FontFamily(Font(R.font.raleway_light)),
                 fontWeight = FontWeight(700),
                 color = MaterialTheme.colorScheme.onSurface,
             )
