@@ -108,10 +108,26 @@ fun ChooseServiceTypeScreen(
 }
 
 fun getServiceTypes() = listOf(
-    ServiceType(photoResourceId = R.drawable.manicure, title = "Basic Manicure", price = 5),
-    ServiceType(photoResourceId = R.drawable.nail_1, title = "Basic Pedicure", price = 50),
-    ServiceType(photoResourceId = R.drawable.gel_pedicure, title = "Gel Manicure", price = 25),
-    ServiceType(photoResourceId = R.drawable.gel_pedicure, title = "Gel Manicure", price = 15),
+    ServiceType(
+        photoResourceId = R.drawable.manicure,
+        title = "Basic Manicure",
+        price = 5
+    ),
+    ServiceType(
+        photoResourceId = R.drawable.nail_1,
+        title = "Basic Pedicure",
+        price = 50
+    ),
+    ServiceType(
+        photoResourceId = R.drawable.gel_pedicure,
+        title = "Gel Manicure",
+        price = 25
+    ),
+    ServiceType(
+        photoResourceId = R.drawable.gel_pedicure,
+        title = "Gel Manicure",
+        price = 15
+    ),
     ServiceType(
         photoResourceId = R.drawable.acrylic_extention,
         title = "Acrylic Extensions",
