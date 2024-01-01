@@ -3,12 +3,15 @@ package com.faridnia.metime.presentation.ui.professionals_calendar
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -17,19 +20,46 @@ import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 import com.faridnia.metime.util.LightAndDarkPreview
+import com.faridnia.metime.util.getCurrentDateTime
 
 @LightAndDarkPreview
 @Composable
 fun PreviewLoginBottomSheetScreen() {
     MeTimeTheme {
         LoginBottomSheetScreen(
-            state = remember { mutableStateOf(ProsCalState()) },
+            state = remember {
+                mutableStateOf(
+                    ProsCalState(
+                        professionalData = ProfessionalData(
+                            name = "Anna Smith",
+                            jobTitle = "Nailist",
+                            rate = 5.0f,
+                            availableDays = listOf(
+                                AvailableDay(
+                                    date = getCurrentDateTime(),
+                                    availableHours = listOf(
+                                        AvailableHour(
+                                            date = getCurrentDateTime(),
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            },
             navController = rememberNavController()
         )
     }
@@ -59,6 +89,78 @@ fun LoginBottomSheetScreen(
             contentDescription = "image description",
             contentScale = ContentScale.FillBounds
         )
+
+        Text(
+            text = state.value.professionalData.name,
+            style = TextStyle(
+                fontSize = 24.sp,
+                fontFamily = FontFamily(Font(R.font.raleway_light)),
+                fontWeight = FontWeight(600),
+                color = MaterialTheme.colorScheme.onSurface,
+                textAlign = TextAlign.Center,
+            )
+        )
+
+        Spacer(modifier = Modifier.height(5.dp))
+
+        Text(
+            text = "Nail Designer",
+            style = TextStyle(
+                fontSize = 14.sp,
+                fontFamily = FontFamily(Font(R.font.raleway_light)),
+                fontWeight = FontWeight(500),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+            )
+        )
+
+        Row {
+            Image(
+                modifier = Modifier
+                    .width(20.dp)
+                    .height(20.dp),
+                painter = painterResource(id = R.drawable.star),
+                contentDescription = "star",
+                contentScale = ContentScale.Fit
+            )
+
+            Text(
+                text = "5.0",
+                style = TextStyle(
+                    fontSize = 14.sp,
+                    fontFamily = FontFamily(Font(R.font.raleway_light)),
+                    fontWeight = FontWeight(500),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center,
+                )
+            )
+        }
+        Spacer(modifier = Modifier.height(50.dp))
+
+        Divider(
+            modifier = Modifier
+                .padding(0.dp)
+                .width(375.dp)
+                .height(1.dp)
+                .background(color = MaterialTheme.colorScheme.onSurfaceVariant)
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text(
+            text = "Select date & time ",
+            style = TextStyle(
+                fontSize = 24.sp,
+                lineHeight = 32.72.sp,
+                fontFamily = FontFamily(Font(R.font.raleway_light)),
+                fontWeight = FontWeight(600),
+                color = MaterialTheme.colorScheme.onSurface,
+                textAlign = TextAlign.Center,
+            )
+        )
+
+
+
 
     }
 }
