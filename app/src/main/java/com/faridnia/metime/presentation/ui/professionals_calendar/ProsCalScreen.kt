@@ -2,13 +2,19 @@ package com.faridnia.metime.presentation.ui.professionals_calendar
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -47,6 +53,30 @@ fun PreviewLoginBottomSheetScreen() {
                             jobTitle = "Nailist",
                             rate = 5.0f,
                             availableDays = listOf(
+                                AvailableDay(
+                                    date = getCurrentDateTime(),
+                                    availableHours = listOf(
+                                        AvailableHour(
+                                            date = getCurrentDateTime(),
+                                        )
+                                    )
+                                ),
+                                AvailableDay(
+                                    date = getCurrentDateTime(),
+                                    availableHours = listOf(
+                                        AvailableHour(
+                                            date = getCurrentDateTime(),
+                                        )
+                                    )
+                                ),
+                                AvailableDay(
+                                    date = getCurrentDateTime(),
+                                    availableHours = listOf(
+                                        AvailableHour(
+                                            date = getCurrentDateTime(),
+                                        )
+                                    )
+                                ),
                                 AvailableDay(
                                     date = getCurrentDateTime(),
                                     availableHours = listOf(
@@ -159,8 +189,78 @@ fun LoginBottomSheetScreen(
             )
         )
 
+        Column(
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Row {
+                Text(
+                    text = "Day",
+                    style = TextStyle(
+                        fontSize = 18.sp,
+                        fontFamily = FontFamily(Font(R.font.raleway_light)),
+                        fontWeight = FontWeight(600),
+                        color = MaterialTheme.colorScheme.onSurface,
+                        textAlign = TextAlign.Center,
+                    )
+                )
 
+                Spacer(modifier = Modifier.weight(1.0f))
 
+                Text(
+                    text = "October",
+                    style = TextStyle(
+                        fontSize = 16.sp,
+                        fontFamily = FontFamily(Font(R.font.raleway_light)),
+                        fontWeight = FontWeight(500),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                )
 
+                Image(
+                    modifier = Modifier
+                        .width(14.dp)
+                        .height(14.dp),
+                    painter = painterResource(id = R.drawable.forward),
+                    contentDescription = "forward",
+                    contentScale = ContentScale.Fit
+                )
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            LazyRow {
+                items(state.value.professionalData.availableDays) {
+                    DateItem()
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun DateItem() {
+    Column(
+        horizontalAlignment = CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier
+            .border(
+                width = 1.dp,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                shape = RoundedCornerShape(size = 10.dp)
+            )
+            .width(63.dp)
+            .height(72.dp)
+    ) {
+        Text(
+            text = "20\nWed",
+            style = TextStyle(
+                fontSize = 20.sp,
+                lineHeight = 28.18.sp,
+                fontFamily = FontFamily(Font(R.font.raleway_light)),
+                fontWeight = FontWeight(600),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+            )
+        )
     }
 }
