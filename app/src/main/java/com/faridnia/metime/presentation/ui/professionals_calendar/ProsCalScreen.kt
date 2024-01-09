@@ -13,6 +13,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Divider
@@ -43,6 +46,26 @@ import com.faridnia.metime.util.getCurrentDateTime
 @LightAndDarkPreview
 @Composable
 fun PreviewLoginBottomSheetScreen() {
+    val availableHours = mutableListOf<AvailableHour>()
+    for (i in 1..10) {
+        availableHours.add(
+            AvailableHour(
+                date = getCurrentDateTime(),
+            )
+        )
+    }
+
+    val availableDays = mutableListOf<AvailableDay>()
+    for (i in 1..10) {
+        availableDays.add(
+            AvailableDay(
+                date = getCurrentDateTime(),
+                availableHours = availableHours
+            )
+        )
+
+    }
+
     MeTimeTheme {
         LoginBottomSheetScreen(
             state = remember {
@@ -52,40 +75,7 @@ fun PreviewLoginBottomSheetScreen() {
                             name = "Anna Smith",
                             jobTitle = "Nailist",
                             rate = 5.0f,
-                            availableDays = listOf(
-                                AvailableDay(
-                                    date = getCurrentDateTime(),
-                                    availableHours = listOf(
-                                        AvailableHour(
-                                            date = getCurrentDateTime(),
-                                        )
-                                    )
-                                ),
-                                AvailableDay(
-                                    date = getCurrentDateTime(),
-                                    availableHours = listOf(
-                                        AvailableHour(
-                                            date = getCurrentDateTime(),
-                                        )
-                                    )
-                                ),
-                                AvailableDay(
-                                    date = getCurrentDateTime(),
-                                    availableHours = listOf(
-                                        AvailableHour(
-                                            date = getCurrentDateTime(),
-                                        )
-                                    )
-                                ),
-                                AvailableDay(
-                                    date = getCurrentDateTime(),
-                                    availableHours = listOf(
-                                        AvailableHour(
-                                            date = getCurrentDateTime(),
-                                        )
-                                    )
-                                )
-                            )
+                            availableDays = availableDays
                         )
                     )
                 )
@@ -228,11 +218,42 @@ fun LoginBottomSheetScreen(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            LazyRow {
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
                 items(state.value.professionalData.availableDays) {
                     DateItem()
                 }
             }
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Column(
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = "Availability",
+                style = TextStyle(
+                    fontSize = 18.sp,
+                    fontFamily = FontFamily(Font(R.font.raleway_light)),
+                    fontWeight = FontWeight(600),
+                    color = MaterialTheme.colorScheme.onSurface,
+                    textAlign = TextAlign.Center,
+                )
+            )
+
+            LazyVerticalGrid(
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                columns = GridCells.Fixed(2),
+
+                ) {
+                items(state.value.professionalData.availableDays.first().availableHours) {
+                    DateItem()
+                }
+            }
+
         }
     }
 }
