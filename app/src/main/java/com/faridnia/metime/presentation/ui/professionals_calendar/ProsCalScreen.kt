@@ -100,57 +100,8 @@ fun ProsCalendarScreen(
 
         Spacer(modifier = Modifier.height(70.dp))
 
-        Image(
-            modifier = Modifier
-                .width(98.dp)
-                .height(98.dp),
-            painter = painterResource(id = R.drawable.pro_cal),
-            contentDescription = "image description",
-            contentScale = ContentScale.FillBounds
-        )
+        ProfileComponent(state)
 
-        Text(
-            text = state.value.professionalData.name, style = TextStyle(
-                fontSize = 24.sp,
-                fontFamily = FontFamily(Font(R.font.raleway_light)),
-                fontWeight = FontWeight(600),
-                color = MaterialTheme.colorScheme.onSurface,
-                textAlign = TextAlign.Center,
-            )
-        )
-
-        Spacer(modifier = Modifier.height(5.dp))
-
-        Text(
-            text = "Nail Designer", style = TextStyle(
-                fontSize = 14.sp,
-                fontFamily = FontFamily(Font(R.font.raleway_light)),
-                fontWeight = FontWeight(500),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
-            )
-        )
-
-        Row {
-            Image(
-                modifier = Modifier
-                    .width(20.dp)
-                    .height(20.dp),
-                painter = painterResource(id = R.drawable.star),
-                contentDescription = "star",
-                contentScale = ContentScale.Fit
-            )
-
-            Text(
-                text = "5.0", style = TextStyle(
-                    fontSize = 14.sp,
-                    fontFamily = FontFamily(Font(R.font.raleway_light)),
-                    fontWeight = FontWeight(500),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.Center,
-                )
-            )
-        }
         Spacer(modifier = Modifier.height(50.dp))
 
         Divider(
@@ -176,59 +127,108 @@ fun ProsCalendarScreen(
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Column(
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Row {
-                Text(
-                    text = "Day", style = TextStyle(
-                        fontSize = 18.sp,
-                        fontFamily = FontFamily(Font(R.font.raleway_light)),
-                        fontWeight = FontWeight(600),
-                        color = MaterialTheme.colorScheme.onSurface,
-                        textAlign = TextAlign.Center,
-                    )
-                )
-
-                Spacer(modifier = Modifier.weight(1.0f))
-
-                Text(
-                    text = "October", style = TextStyle(
-                        fontSize = 16.sp,
-                        fontFamily = FontFamily(Font(R.font.raleway_light)),
-                        fontWeight = FontWeight(500),
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                )
-
-                Image(
-                    modifier = Modifier
-                        .width(14.dp)
-                        .height(14.dp),
-                    painter = painterResource(id = R.drawable.forward),
-                    contentDescription = "forward",
-                    contentScale = ContentScale.Fit
-                )
-            }
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            LazyRow(
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                items(state.value.professionalData.availableDays) {
-                    DateItem(formatDateToDayAndDayOfWeekInTwoLines(it.date))
-                }
-            }
-        }
+        DaysInMonthComponent(state.value.professionalData.availableDays)
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        Column(
-            modifier = Modifier.fillMaxWidth()
+        HoursInDayComponent(state.value.professionalData.availableDays.first().availableHours)
+    }
+}
+
+@Composable
+private fun HoursInDayComponent(availableHours: List<AvailableHour>) {
+    Column(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Text(
+            text = "Availability", style = TextStyle(
+                fontSize = 18.sp,
+                fontFamily = FontFamily(Font(R.font.raleway_light)),
+                fontWeight = FontWeight(600),
+                color = MaterialTheme.colorScheme.onSurface,
+                textAlign = TextAlign.Center,
+            )
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        LazyVerticalGrid(
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            columns = GridCells.Fixed(2)
         ) {
+            items(availableHours) {
+                DateItem(formatTimeToHourInDay(it.date))
+            }
+        }
+
+    }
+}
+
+@Composable
+private fun ProfileComponent(state: State<ProsCalState>) {
+    Image(
+        modifier = Modifier
+            .width(98.dp)
+            .height(98.dp),
+        painter = painterResource(id = R.drawable.pro_cal),
+        contentDescription = "image description",
+        contentScale = ContentScale.FillBounds
+    )
+
+    Text(
+        text = state.value.professionalData.name, style = TextStyle(
+            fontSize = 24.sp,
+            fontFamily = FontFamily(Font(R.font.raleway_light)),
+            fontWeight = FontWeight(600),
+            color = MaterialTheme.colorScheme.onSurface,
+            textAlign = TextAlign.Center,
+        )
+    )
+
+    Spacer(modifier = Modifier.height(5.dp))
+
+    Text(
+        text = "Nail Designer", style = TextStyle(
+            fontSize = 14.sp,
+            fontFamily = FontFamily(Font(R.font.raleway_light)),
+            fontWeight = FontWeight(500),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            textAlign = TextAlign.Center,
+        )
+    )
+
+    Row {
+        Image(
+            modifier = Modifier
+                .width(20.dp)
+                .height(20.dp),
+            painter = painterResource(id = R.drawable.star),
+            contentDescription = "star",
+            contentScale = ContentScale.Fit
+        )
+
+        Text(
+            text = "5.0", style = TextStyle(
+                fontSize = 14.sp,
+                fontFamily = FontFamily(Font(R.font.raleway_light)),
+                fontWeight = FontWeight(500),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+            )
+        )
+    }
+}
+
+
+@Composable
+private fun DaysInMonthComponent(availableDays: List<AvailableDay>) {
+    Column(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Row {
             Text(
-                text = "Availability", style = TextStyle(
+                text = "Day", style = TextStyle(
                     fontSize = 18.sp,
                     fontFamily = FontFamily(Font(R.font.raleway_light)),
                     fontWeight = FontWeight(600),
@@ -237,18 +237,35 @@ fun ProsCalendarScreen(
                 )
             )
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.weight(1.0f))
 
-            LazyVerticalGrid(
-                verticalArrangement = Arrangement.spacedBy(16.dp),
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
-                columns = GridCells.Fixed(2)
-            ) {
-                items(state.value.professionalData.availableDays.first().availableHours) {
-                    DateItem(formatTimeToHourInDay(it.date))
-                }
+            Text(
+                text = "October", style = TextStyle(
+                    fontSize = 16.sp,
+                    fontFamily = FontFamily(Font(R.font.raleway_light)),
+                    fontWeight = FontWeight(500),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            )
+
+            Image(
+                modifier = Modifier
+                    .width(14.dp)
+                    .height(14.dp),
+                painter = painterResource(id = R.drawable.forward),
+                contentDescription = "forward",
+                contentScale = ContentScale.Fit
+            )
+        }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        LazyRow(
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            items(availableDays) {
+                DateItem(formatDateToDayAndDayOfWeekInTwoLines(it.date))
             }
-
         }
     }
 }
