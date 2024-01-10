@@ -41,11 +41,13 @@ import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 import com.faridnia.metime.util.LightAndDarkPreview
+import com.faridnia.metime.util.formatDateToDayAndDayOfWeekInTwoLines
+import com.faridnia.metime.util.formatTimeToHourInDay
 import com.faridnia.metime.util.getCurrentDateTime
 
 @LightAndDarkPreview
 @Composable
-fun PreviewLoginBottomSheetScreen() {
+fun PreviewProsCalendarScreen() {
     val availableHours = mutableListOf<AvailableHour>()
     for (i in 1..10) {
         availableHours.add(
@@ -59,15 +61,14 @@ fun PreviewLoginBottomSheetScreen() {
     for (i in 1..10) {
         availableDays.add(
             AvailableDay(
-                date = getCurrentDateTime(),
-                availableHours = availableHours
+                date = getCurrentDateTime(), availableHours = availableHours
             )
         )
 
     }
 
     MeTimeTheme {
-        LoginBottomSheetScreen(
+        ProsCalendarScreen(
             state = remember {
                 mutableStateOf(
                     ProsCalState(
@@ -79,16 +80,14 @@ fun PreviewLoginBottomSheetScreen() {
                         )
                     )
                 )
-            },
-            navController = rememberNavController()
+            }, navController = rememberNavController()
         )
     }
 }
 
 @Composable
-fun LoginBottomSheetScreen(
-    state: State<ProsCalState>,
-    navController: NavController
+fun ProsCalendarScreen(
+    state: State<ProsCalState>, navController: NavController
 ) {
 
     Column(
@@ -111,8 +110,7 @@ fun LoginBottomSheetScreen(
         )
 
         Text(
-            text = state.value.professionalData.name,
-            style = TextStyle(
+            text = state.value.professionalData.name, style = TextStyle(
                 fontSize = 24.sp,
                 fontFamily = FontFamily(Font(R.font.raleway_light)),
                 fontWeight = FontWeight(600),
@@ -124,8 +122,7 @@ fun LoginBottomSheetScreen(
         Spacer(modifier = Modifier.height(5.dp))
 
         Text(
-            text = "Nail Designer",
-            style = TextStyle(
+            text = "Nail Designer", style = TextStyle(
                 fontSize = 14.sp,
                 fontFamily = FontFamily(Font(R.font.raleway_light)),
                 fontWeight = FontWeight(500),
@@ -145,8 +142,7 @@ fun LoginBottomSheetScreen(
             )
 
             Text(
-                text = "5.0",
-                style = TextStyle(
+                text = "5.0", style = TextStyle(
                     fontSize = 14.sp,
                     fontFamily = FontFamily(Font(R.font.raleway_light)),
                     fontWeight = FontWeight(500),
@@ -168,8 +164,7 @@ fun LoginBottomSheetScreen(
         Spacer(modifier = Modifier.height(20.dp))
 
         Text(
-            text = "Select date & time ",
-            style = TextStyle(
+            text = "Select date & time ", style = TextStyle(
                 fontSize = 24.sp,
                 lineHeight = 32.72.sp,
                 fontFamily = FontFamily(Font(R.font.raleway_light)),
@@ -179,13 +174,14 @@ fun LoginBottomSheetScreen(
             )
         )
 
+        Spacer(modifier = Modifier.height(20.dp))
+
         Column(
             modifier = Modifier.fillMaxWidth()
         ) {
             Row {
                 Text(
-                    text = "Day",
-                    style = TextStyle(
+                    text = "Day", style = TextStyle(
                         fontSize = 18.sp,
                         fontFamily = FontFamily(Font(R.font.raleway_light)),
                         fontWeight = FontWeight(600),
@@ -197,8 +193,7 @@ fun LoginBottomSheetScreen(
                 Spacer(modifier = Modifier.weight(1.0f))
 
                 Text(
-                    text = "October",
-                    style = TextStyle(
+                    text = "October", style = TextStyle(
                         fontSize = 16.sp,
                         fontFamily = FontFamily(Font(R.font.raleway_light)),
                         fontWeight = FontWeight(500),
@@ -222,7 +217,7 @@ fun LoginBottomSheetScreen(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 items(state.value.professionalData.availableDays) {
-                    DateItem()
+                    DateItem(formatDateToDayAndDayOfWeekInTwoLines(it.date))
                 }
             }
         }
@@ -233,8 +228,7 @@ fun LoginBottomSheetScreen(
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(
-                text = "Availability",
-                style = TextStyle(
+                text = "Availability", style = TextStyle(
                     fontSize = 18.sp,
                     fontFamily = FontFamily(Font(R.font.raleway_light)),
                     fontWeight = FontWeight(600),
@@ -243,14 +237,15 @@ fun LoginBottomSheetScreen(
                 )
             )
 
+            Spacer(modifier = Modifier.height(24.dp))
+
             LazyVerticalGrid(
                 verticalArrangement = Arrangement.spacedBy(16.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
-                columns = GridCells.Fixed(2),
-
-                ) {
+                columns = GridCells.Fixed(2)
+            ) {
                 items(state.value.professionalData.availableDays.first().availableHours) {
-                    DateItem()
+                    DateItem(formatTimeToHourInDay(it.date))
                 }
             }
 
@@ -259,7 +254,7 @@ fun LoginBottomSheetScreen(
 }
 
 @Composable
-private fun DateItem() {
+private fun DateItem(dateString: String) {
     Column(
         horizontalAlignment = CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -270,11 +265,10 @@ private fun DateItem() {
                 shape = RoundedCornerShape(size = 10.dp)
             )
             .width(63.dp)
-            .height(72.dp)
+            .padding(8.dp)
     ) {
         Text(
-            text = "20\nWed",
-            style = TextStyle(
+            text = dateString, style = TextStyle(
                 fontSize = 20.sp,
                 lineHeight = 28.18.sp,
                 fontFamily = FontFamily(Font(R.font.raleway_light)),
