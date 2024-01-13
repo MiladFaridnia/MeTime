@@ -39,6 +39,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
+import com.faridnia.metime.presentation.component.PrimaryButton
+import com.faridnia.metime.presentation.nav_graph.Screen
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 import com.faridnia.metime.util.LightAndDarkPreview
 import com.faridnia.metime.util.formatDateToDayAndDayOfWeekInTwoLines
@@ -132,13 +134,29 @@ fun ProsCalendarScreen(
         Spacer(modifier = Modifier.height(24.dp))
 
         HoursInDayComponent(state.value.professionalData.availableDays.first().availableHours)
+
+        Spacer(modifier = Modifier.weight(1.0f))
+
+        PrimaryButton(
+            modifier = Modifier.fillMaxWidth(),
+            buttonText = "Book",
+            isEnabled = true,
+            isLoading = false
+        ) {
+            navController.navigate(Screen.ChooseServiceScreen.route)
+        }
+
+        Spacer(modifier = Modifier.height(40.dp))
+
     }
 }
 
 @Composable
 private fun HoursInDayComponent(availableHours: List<AvailableHour>) {
     Column(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(160.dp),
     ) {
         Text(
             text = "Availability", style = TextStyle(
@@ -161,7 +179,6 @@ private fun HoursInDayComponent(availableHours: List<AvailableHour>) {
                 DateItem(formatTimeToHourInDay(it.date))
             }
         }
-
     }
 }
 

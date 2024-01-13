@@ -10,5 +10,6 @@ sealed class Screen(val route: String, val title: String?) {
     object ChooseServiceScreen : Screen(route = "choose_service_screen", title = "Choose Service")
     object ChooseServiceTypeScreen : Screen(route = "choose_service_type_screen", title = "Choose Service Type")
     object LoginBottomSheetScreen : Screen(route = "login_bottom_sheet_screen", title = "Login BottomSheet")
+    object ProfessionalsCalendarScreen : Screen(route = "professionals_calendar_screen", title = "Login BottomSheet")
 
 }
