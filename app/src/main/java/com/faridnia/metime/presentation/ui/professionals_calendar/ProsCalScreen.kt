@@ -159,7 +159,8 @@ private fun HoursInDayComponent(availableHours: List<AvailableHour>) {
             .height(160.dp),
     ) {
         Text(
-            text = "Availability", style = TextStyle(
+            text = "Availability",
+            style = TextStyle(
                 fontSize = 18.sp,
                 fontFamily = FontFamily(Font(R.font.raleway_light)),
                 fontWeight = FontWeight(600),
