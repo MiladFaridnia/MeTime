@@ -66,6 +66,7 @@ fun SuccessfulBookingScreen(
                 start = 24.dp, end = 24.dp
             ),
     ) {
+        Spacer(modifier = Modifier.height(50.dp))
 
         Image(
             painter = painterResource(id = R.drawable.heart),
