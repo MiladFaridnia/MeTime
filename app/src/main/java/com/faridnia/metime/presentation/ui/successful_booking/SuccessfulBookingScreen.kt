@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
+import com.faridnia.metime.presentation.component.BookingDetails
 import com.faridnia.metime.presentation.component.PrimaryButton
 import com.faridnia.metime.presentation.component.SecondaryButton
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
@@ -112,45 +113,7 @@ fun SuccessfulBookingScreen(
                 )
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Text(
-                text = "Tuesday, 19    04:30pm",
-                style = TextStyle(
-                    fontSize = 18.sp,
-                    lineHeight = 25.sp,
-                    fontFamily = FontFamily(Font(R.font.raleway_light)),
-                    fontWeight = FontWeight(500),
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Text(
-                text = "At The Gallery Salon",
-                style = TextStyle(
-                    fontSize = 18.sp,
-                    lineHeight = 25.sp,
-                    fontFamily = FontFamily(Font(R.font.raleway_light)),
-                    fontWeight = FontWeight(500),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Text(
-                text = "8502 Preston Rd. Inglewood",
-                style = TextStyle(
-                    fontSize = 18.sp,
-                    lineHeight = 25.sp,
-                    fontFamily = FontFamily(Font(R.font.raleway_light)),
-                    fontWeight = FontWeight(600),
-                    color = MaterialTheme.colorScheme.onSurface,
-                    textDecoration = TextDecoration.Underline
-                )
-            )
+            BookingDetails()
         }
 
         Spacer(modifier = Modifier.weight(1f))
