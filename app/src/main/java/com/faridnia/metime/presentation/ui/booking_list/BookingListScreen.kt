@@ -8,16 +8,21 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -31,22 +36,53 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
+import com.faridnia.metime.presentation.component.BookingDetails
+import com.faridnia.metime.presentation.ui.professionals_calendar.AvailableHour
+import com.faridnia.metime.presentation.ui.professionals_calendar.ProfessionalData
+import com.faridnia.metime.presentation.ui.successful_booking.SuccessfulBookingData
+import com.faridnia.metime.presentation.ui.successful_booking.SuccessfulBookingState
 import com.faridnia.metime.util.LightAndDarkPreview
+import com.faridnia.metime.util.getCurrentDateTime
 
 @LightAndDarkPreview
 @Composable
 fun PreviewBookingListScreen() {
-    BookingListScreen(navController = rememberNavController())
+    val successfulBookingList = mutableListOf<SuccessfulBookingData>()
+
+    for (i in 0..10) {
+        successfulBookingList.add(
+            SuccessfulBookingData(
+                salonName = "Gallery",
+                address = "Address",
+                bookDate = getCurrentDateTime(),
+                price = 33,
+                professionalData = ProfessionalData(
+                    name = "name",
+                    jobTitle = "job",
+                    rate = 4.2f,
+                    availableDays = emptyList()
+                ),
+                serviceList = emptyList()
+            )
+        )
+    }
+    BookingListScreen(
+        state = remember {
+            mutableStateOf(
+                SuccessfulBookingState(
+                    successfulBookingData = successfulBookingList
+                )
+            )
+        },
+        navController = rememberNavController()
+    )
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun BookingListScreen(
+    state: State<SuccessfulBookingState>,
     navController: NavController
 ) {
-
-    val tabItems = listOf("Past", "Upcoming")
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -72,7 +108,7 @@ fun BookingListScreen(
         Spacer(modifier = Modifier.height(34.dp))
 
         Tabs(
-            tabItems = tabItems,
+            bookingList = state.value.successfulBookingData,
             modifier = Modifier.Companion.weight(1f)
         )
 
@@ -82,7 +118,13 @@ fun BookingListScreen(
 
 @Composable
 @OptIn(ExperimentalFoundationApi::class)
-private fun Tabs(tabItems: List<String>, modifier: Modifier) {
+private fun Tabs(
+    modifier: Modifier,
+    bookingList: List<SuccessfulBookingData>
+) {
+
+    val tabItems = listOf("Past", "Upcoming")
+
     Column(
         modifier = modifier
     ) {
@@ -132,7 +174,16 @@ private fun Tabs(tabItems: List<String>, modifier: Modifier) {
                 .fillMaxWidth()
                 .weight(1f)
         ) {
-            //Tabs will be here
+            LazyColumn() {
+                items(bookingList) {
+                    BookingDetails()
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Divider(
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+
+                }
+            }
         }
 
     }
