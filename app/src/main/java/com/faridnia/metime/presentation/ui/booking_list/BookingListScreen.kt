@@ -3,6 +3,7 @@ package com.faridnia.metime.presentation.ui.booking_list
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -36,8 +37,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
-import com.faridnia.metime.presentation.component.BookingDetails
-import com.faridnia.metime.presentation.ui.professionals_calendar.AvailableHour
 import com.faridnia.metime.presentation.ui.professionals_calendar.ProfessionalData
 import com.faridnia.metime.presentation.ui.successful_booking.SuccessfulBookingData
 import com.faridnia.metime.presentation.ui.successful_booking.SuccessfulBookingState
@@ -175,18 +174,104 @@ private fun Tabs(
                 .weight(1f)
         ) {
             LazyColumn() {
-                items(bookingList) {
-                    BookingDetails()
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Divider(
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
+                items(bookingList) { successfulBookingData ->
+//                    BookingDetails()
+                    BookingDetailsItem(successfulBookingData)
 
                 }
             }
         }
 
     }
+}
+
+@Composable
+private fun BookingDetailsItem(successfulBookingData: SuccessfulBookingData) {
+    Column {
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text(
+            text = "Luna‘s Salon",
+            style = TextStyle(
+                fontSize = 16.sp,
+                lineHeight = 22.5.sp,
+                fontFamily = FontFamily(Font(R.font.raleway_light)),
+                fontWeight = FontWeight(700),
+                color = MaterialTheme.colorScheme.onSurface,
+                textAlign = TextAlign.Center
+            )
+        )
+
+        Row {
+            Text(
+                text = "with Paty Sinclair",
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    fontFamily = FontFamily(Font(R.font.raleway_light)),
+                    fontWeight = FontWeight(500),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    letterSpacing = 0.1.sp
+                )
+            )
+            Spacer(modifier = Modifier.weight(1f))
+
+            Text(
+                text = "5.0 Kms",
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    fontFamily = FontFamily(Font(R.font.raleway_light)),
+                    fontWeight = FontWeight(500),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    letterSpacing = 0.1.sp
+                )
+            )
+        }
+
+        Text(
+            text = "Basic Manicure 1 x",
+            style = TextStyle(
+                fontSize = 16.sp,
+                fontFamily = FontFamily(Font(R.font.raleway_light)),
+                fontWeight = FontWeight(500),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                letterSpacing = 0.1.sp,
+            )
+        )
+
+        Row {
+
+            Text(
+                text = "8 Mar 2022",
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    fontFamily = FontFamily(Font(R.font.raleway_light)),
+                    fontWeight = FontWeight(600),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    letterSpacing = 0.15.sp,
+                )
+            )
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            Text(
+                text = "$30",
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    fontFamily = FontFamily(Font(R.font.raleway_light)),
+                    fontWeight = FontWeight(600),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    letterSpacing = 0.15.sp,
+                )
+            )
+        }
+
+    }
+
+    Spacer(modifier = Modifier.height(16.dp))
+    Divider(
+        color = MaterialTheme.colorScheme.onSurfaceVariant
+    )
 }
 
 @Composable
