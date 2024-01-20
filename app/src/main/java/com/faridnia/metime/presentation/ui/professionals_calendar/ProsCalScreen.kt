@@ -151,7 +151,7 @@ private fun HoursInDayComponent(availableHours: List<AvailableHour>) {
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             columns = GridCells.Fixed(2)
         ) {
-            items(availableHours) {
+            items(items = availableHours, key = { it.id }) {
                 DateItem(formatTimeToHourInDay(it.date))
             }
         }
@@ -256,7 +256,7 @@ private fun DaysInMonthComponent(availableDays: List<AvailableDay>) {
         LazyRow(
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            items(availableDays) {
+            items(items = availableDays, key = { it.id }) {
                 DateItem(formatDateToDayAndDayOfWeekInTwoLines(it.date))
             }
         }

@@ -2,8 +2,10 @@ package com.faridnia.metime.presentation.ui.professionals_calendar
 
 import com.faridnia.metime.util.getCurrentDateTime
 import java.util.Date
+import java.util.UUID
 
 data class ProfessionalData(
+    val id : String = UUID.randomUUID().toString(),
     val name: String,
     val jobTitle: String,
     val rate: Float,
@@ -11,11 +13,13 @@ data class ProfessionalData(
 )
 
 data class AvailableDay(
+    val id : String = UUID.randomUUID().toString(),
     val date: Date,
     val availableHours: List<AvailableHour>
 )
 
 data class AvailableHour(
+    val id : String = UUID.randomUUID().toString(),
     val date: Date
 )
 

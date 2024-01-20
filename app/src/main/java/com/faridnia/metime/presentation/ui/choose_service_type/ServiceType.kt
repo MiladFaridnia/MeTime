@@ -2,12 +2,14 @@ package com.faridnia.metime.presentation.ui.choose_service_type
 
 import com.faridnia.metime.R
 import com.faridnia.metime.presentation.ui.choose_service.Service
+import java.util.UUID
 
 data class ServiceType(
+    val id: String = UUID.randomUUID().toString(),
     val photoResourceId: Int,
     val title: String,
     val price: Long,
-    val service: Service
+    val service: Service,
 ) //FIXME resource Id must be changed to url
 
 fun getSampleServiceTypes() = listOf(
@@ -16,7 +18,7 @@ fun getSampleServiceTypes() = listOf(
         title = "Basic Manicure",
         price = 5,
         service = Service(
-            R.drawable.nail, "Nail"
+            photoResourceId = R.drawable.nail, title = "Nail"
         )
 
     ),
@@ -25,7 +27,7 @@ fun getSampleServiceTypes() = listOf(
         title = "Basic Pedicure",
         price = 50,
         service = Service(
-            R.drawable.nail, "Nail"
+            photoResourceId = R.drawable.nail, title = "Nail"
         )
     ),
     ServiceType(
@@ -33,7 +35,7 @@ fun getSampleServiceTypes() = listOf(
         title = "Gel Manicure",
         price = 25,
         service = Service(
-            R.drawable.nail, "Nail"
+            photoResourceId = R.drawable.nail, title = "Nail"
         )
     ),
     ServiceType(
@@ -41,7 +43,7 @@ fun getSampleServiceTypes() = listOf(
         title = "Gel Manicure",
         price = 15,
         service = Service(
-            R.drawable.nail, "Nail"
+            photoResourceId = R.drawable.nail, title = "Nail"
         )
     ),
     ServiceType(
@@ -49,7 +51,7 @@ fun getSampleServiceTypes() = listOf(
         title = "Acrylic Extensions",
         price = 35,
         service = Service(
-            R.drawable.nail, "Nail"
+            photoResourceId = R.drawable.nail, title = "Nail"
         )
     )
 )

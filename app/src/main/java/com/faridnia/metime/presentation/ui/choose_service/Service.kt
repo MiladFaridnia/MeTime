@@ -1,12 +1,17 @@
 package com.faridnia.metime.presentation.ui.choose_service
 
 import com.faridnia.metime.R
+import java.util.UUID
 
-data class Service(val photoResourceId: Int, val title: String)
+data class Service(
+    val id: String = UUID.randomUUID().toString(),
+    val photoResourceId: Int,
+    val title: String,
+)
 
 fun getSampleServices() = listOf(
-    Service(R.drawable.nail, "Nail"),
-    Service(R.drawable.eyebrowns, "Eyebrows"),
-    Service(R.drawable.massage, "Massage"),
-    Service(R.drawable.hair, "Hair"),
+    Service(photoResourceId = R.drawable.nail, title = "Nail"),
+    Service(photoResourceId = R.drawable.eyebrowns, title = "Eyebrows"),
+    Service(photoResourceId = R.drawable.massage, title = "Massage"),
+    Service(photoResourceId = R.drawable.hair, title = "Hair"),
 )
