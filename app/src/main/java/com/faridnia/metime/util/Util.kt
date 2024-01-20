@@ -26,6 +26,16 @@ fun formatDateToDayAndDayOfWeekInTwoLines(date: Date): String {
 * Sample output "10:30 AM"
 */
 fun formatTimeToHourInDay(date: Date): String {
-    val timeFormat = SimpleDateFormat("hh:mm a",Locale.getDefault())
+    val timeFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
     return timeFormat.format(date)
 }
+
+/*
+* Sample output "Tuesday, 19 04:30pm"
+*/
+fun formatTimeToDayInWeek(date: Date): String {
+    val outputDateFormat = SimpleDateFormat("EEEE, d    hh:mma", Locale.ENGLISH)
+    return outputDateFormat.format(date)
+}
+
+
