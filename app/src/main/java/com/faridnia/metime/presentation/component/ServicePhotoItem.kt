@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.faridnia.metime.R
 import com.faridnia.metime.presentation.ui.choose_service.Service
+import com.faridnia.metime.presentation.ui.choose_service.getSampleServices
 import com.faridnia.metime.util.LightAndDarkPreview
 
 @LightAndDarkPreview
@@ -32,7 +33,7 @@ import com.faridnia.metime.util.LightAndDarkPreview
 fun PreviewPhotoItem() {
     MaterialTheme {
         PhotoItem(
-            service = Service(R.drawable.nail, "Nail"),
+            service = getSampleServices().first(),
             onClick = {}
         )
     }
