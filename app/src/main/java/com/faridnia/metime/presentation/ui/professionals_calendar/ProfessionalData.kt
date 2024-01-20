@@ -1,9 +1,11 @@
 package com.faridnia.metime.presentation.ui.professionals_calendar
 
+import androidx.compose.runtime.Immutable
 import com.faridnia.metime.util.getCurrentDateTime
 import java.util.Date
 import java.util.UUID
 
+@Immutable
 data class ProfessionalData(
     val id : String = UUID.randomUUID().toString(),
     val name: String,
@@ -12,6 +14,7 @@ data class ProfessionalData(
     val availableDays: List<AvailableDay>
 )
 
+@Immutable
 data class AvailableDay(
     val id : String = UUID.randomUUID().toString(),
     val date: Date,
