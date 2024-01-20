@@ -1,23 +1,13 @@
 package com.faridnia.metime.presentation.ui.professionals_calendar
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -27,8 +17,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -39,12 +27,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
+import com.faridnia.metime.presentation.component.DaysInMonthComponent
+import com.faridnia.metime.presentation.component.HoursInDayComponent
 import com.faridnia.metime.presentation.component.PrimaryButton
+import com.faridnia.metime.presentation.component.ProfileComponent
 import com.faridnia.metime.presentation.nav_graph.Screen
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 import com.faridnia.metime.util.LightAndDarkPreview
-import com.faridnia.metime.util.formatDateToDayAndDayOfWeekInTwoLines
-import com.faridnia.metime.util.formatTimeToHourInDay
 
 @LightAndDarkPreview
 @Composable
@@ -123,169 +112,5 @@ fun ProsCalendarScreen(
 
         Spacer(modifier = Modifier.height(40.dp))
 
-    }
-}
-
-@Composable
-private fun HoursInDayComponent(availableHours: List<AvailableHour>) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(160.dp),
-    ) {
-        Text(
-            text = "Availability",
-            style = TextStyle(
-                fontSize = 18.sp,
-                fontFamily = FontFamily(Font(R.font.raleway_light)),
-                fontWeight = FontWeight(600),
-                color = MaterialTheme.colorScheme.onSurface,
-                textAlign = TextAlign.Center,
-            )
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        LazyVerticalGrid(
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            columns = GridCells.Fixed(2)
-        ) {
-            items(items = availableHours, key = { it.id }) {
-                DateItem(formatTimeToHourInDay(it.date))
-            }
-        }
-    }
-}
-
-@Composable
-private fun ProfileComponent(state: State<ProsCalState>) {
-    Image(
-        modifier = Modifier
-            .width(98.dp)
-            .height(98.dp),
-        painter = painterResource(id = R.drawable.pro_cal),
-        contentDescription = "image description",
-        contentScale = ContentScale.FillBounds
-    )
-
-    Text(
-        text = state.value.professionalData.name, style = TextStyle(
-            fontSize = 24.sp,
-            fontFamily = FontFamily(Font(R.font.raleway_light)),
-            fontWeight = FontWeight(600),
-            color = MaterialTheme.colorScheme.onSurface,
-            textAlign = TextAlign.Center,
-        )
-    )
-
-    Spacer(modifier = Modifier.height(5.dp))
-
-    Text(
-        text = "Nail Designer", style = TextStyle(
-            fontSize = 14.sp,
-            fontFamily = FontFamily(Font(R.font.raleway_light)),
-            fontWeight = FontWeight(500),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            textAlign = TextAlign.Center,
-        )
-    )
-
-    Row {
-        Image(
-            modifier = Modifier
-                .width(20.dp)
-                .height(20.dp),
-            painter = painterResource(id = R.drawable.star),
-            contentDescription = "star",
-            contentScale = ContentScale.Fit
-        )
-
-        Text(
-            text = "5.0", style = TextStyle(
-                fontSize = 14.sp,
-                fontFamily = FontFamily(Font(R.font.raleway_light)),
-                fontWeight = FontWeight(500),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
-            )
-        )
-    }
-}
-
-
-@Composable
-private fun DaysInMonthComponent(availableDays: List<AvailableDay>) {
-    Column(
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Row {
-            Text(
-                text = "Day", style = TextStyle(
-                    fontSize = 18.sp,
-                    fontFamily = FontFamily(Font(R.font.raleway_light)),
-                    fontWeight = FontWeight(600),
-                    color = MaterialTheme.colorScheme.onSurface,
-                    textAlign = TextAlign.Center,
-                )
-            )
-
-            Spacer(modifier = Modifier.weight(1.0f))
-
-            Text(
-                text = "October", style = TextStyle(
-                    fontSize = 16.sp,
-                    fontFamily = FontFamily(Font(R.font.raleway_light)),
-                    fontWeight = FontWeight(500),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            )
-
-            Image(
-                modifier = Modifier
-                    .width(14.dp)
-                    .height(14.dp),
-                painter = painterResource(id = R.drawable.forward),
-                contentDescription = "forward",
-                contentScale = ContentScale.Fit
-            )
-        }
-
-        Spacer(modifier = Modifier.height(20.dp))
-
-        LazyRow(
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            items(items = availableDays, key = { it.id }) {
-                DateItem(formatDateToDayAndDayOfWeekInTwoLines(it.date))
-            }
-        }
-    }
-}
-
-@Composable
-private fun DateItem(dateString: String) {
-    Column(
-        horizontalAlignment = CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier
-            .border(
-                width = 1.dp,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                shape = RoundedCornerShape(size = 10.dp)
-            )
-            .width(63.dp)
-            .padding(8.dp)
-    ) {
-        Text(
-            text = dateString, style = TextStyle(
-                fontSize = 20.sp,
-                lineHeight = 28.18.sp,
-                fontFamily = FontFamily(Font(R.font.raleway_light)),
-                fontWeight = FontWeight(600),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
-            )
-        )
     }
 }
