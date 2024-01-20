@@ -3,7 +3,6 @@ package com.faridnia.metime.presentation.ui.booking_list
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,7 +12,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
@@ -37,11 +35,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
+import com.faridnia.metime.presentation.component.BookingDetailsItem
 import com.faridnia.metime.presentation.ui.successful_booking.SuccessfulBookingData
 import com.faridnia.metime.presentation.ui.successful_booking.SuccessfulBookingState
 import com.faridnia.metime.presentation.ui.successful_booking.getSampleSuccessfulBookingData
 import com.faridnia.metime.util.LightAndDarkPreview
-import okhttp3.internal.http.toHttpDateString
 
 @LightAndDarkPreview
 @Composable
@@ -93,7 +91,6 @@ fun BookingListScreen(
             modifier = Modifier.Companion.weight(1f)
         )
     }
-
 }
 
 @Composable
@@ -160,97 +157,7 @@ private fun Tabs(
                 }
             }
         }
-
     }
-}
-
-@Composable
-private fun BookingDetailsItem(successfulBookingData: SuccessfulBookingData) {
-    Column {
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Text(
-            text = successfulBookingData.salonName,
-            style = TextStyle(
-                fontSize = 16.sp,
-                lineHeight = 22.5.sp,
-                fontFamily = FontFamily(Font(R.font.raleway_light)),
-                fontWeight = FontWeight(700),
-                color = MaterialTheme.colorScheme.onSurface,
-                textAlign = TextAlign.Center
-            )
-        )
-
-        Row {
-            Text(
-                text = "with ${successfulBookingData.professionalData.name}",
-                style = TextStyle(
-                    fontSize = 16.sp,
-                    fontFamily = FontFamily(Font(R.font.raleway_light)),
-                    fontWeight = FontWeight(500),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    letterSpacing = 0.1.sp
-                )
-            )
-            Spacer(modifier = Modifier.weight(1f))
-
-            Text(
-                text = "5.0 Kms", // TODO Must update distance calculation
-                style = TextStyle(
-                    fontSize = 16.sp,
-                    fontFamily = FontFamily(Font(R.font.raleway_light)),
-                    fontWeight = FontWeight(500),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    letterSpacing = 0.1.sp
-                )
-            )
-        }
-
-        Text(
-            text = successfulBookingData.serviceTypeList.map { it.title }.toString(),
-            style = TextStyle(
-                fontSize = 16.sp,
-                fontFamily = FontFamily(Font(R.font.raleway_light)),
-                fontWeight = FontWeight(500),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                letterSpacing = 0.1.sp,
-            )
-        )
-
-        Row {
-
-            Text(
-                text = successfulBookingData.bookDate.toHttpDateString(),
-                style = TextStyle(
-                    fontSize = 16.sp,
-                    fontFamily = FontFamily(Font(R.font.raleway_light)),
-                    fontWeight = FontWeight(600),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    letterSpacing = 0.15.sp,
-                )
-            )
-
-            Spacer(modifier = Modifier.weight(1f))
-
-            Text(
-                text = "$30",
-                style = TextStyle(
-                    fontSize = 16.sp,
-                    fontFamily = FontFamily(Font(R.font.raleway_light)),
-                    fontWeight = FontWeight(600),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    letterSpacing = 0.15.sp,
-                )
-            )
-        }
-
-    }
-
-    Spacer(modifier = Modifier.height(16.dp))
-    Divider(
-        color = MaterialTheme.colorScheme.onSurfaceVariant
-    )
 }
 
 @Composable
