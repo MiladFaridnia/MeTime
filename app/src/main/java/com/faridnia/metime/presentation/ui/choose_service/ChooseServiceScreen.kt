@@ -103,7 +103,7 @@ fun ChooseServiceScreen(
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
         ) {
-            items(getPhotoItems()) {
+            items(getSampleServices()) {
                 PhotoItem(it) {
                     navController.navigate(Screen.ChooseServiceTypeScreen.route)
                 }
@@ -125,14 +125,6 @@ fun ChooseServiceScreen(
 
     }
 }
-
-
-fun getPhotoItems() = listOf(
-    Service(R.drawable.nail, "Nail"),
-    Service(R.drawable.eyebrowns, "Eyebrows"),
-    Service(R.drawable.massage, "Massage"),
-    Service(R.drawable.hair, "Hair"),
-)
 
 @Composable
 private fun PageState() {

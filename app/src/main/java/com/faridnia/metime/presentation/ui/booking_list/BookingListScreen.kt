@@ -37,39 +37,21 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
-import com.faridnia.metime.presentation.ui.professionals_calendar.ProfessionalData
 import com.faridnia.metime.presentation.ui.successful_booking.SuccessfulBookingData
 import com.faridnia.metime.presentation.ui.successful_booking.SuccessfulBookingState
+import com.faridnia.metime.presentation.ui.successful_booking.getSampleSuccessfulBookingData
 import com.faridnia.metime.util.LightAndDarkPreview
-import com.faridnia.metime.util.getCurrentDateTime
+import okhttp3.internal.http.toHttpDateString
 
 @LightAndDarkPreview
 @Composable
 fun PreviewBookingListScreen() {
-    val successfulBookingList = mutableListOf<SuccessfulBookingData>()
 
-    for (i in 0..10) {
-        successfulBookingList.add(
-            SuccessfulBookingData(
-                salonName = "Gallery",
-                address = "Address",
-                bookDate = getCurrentDateTime(),
-                price = 33,
-                professionalData = ProfessionalData(
-                    name = "name",
-                    jobTitle = "job",
-                    rate = 4.2f,
-                    availableDays = emptyList()
-                ),
-                serviceList = emptyList()
-            )
-        )
-    }
     BookingListScreen(
         state = remember {
             mutableStateOf(
                 SuccessfulBookingState(
-                    successfulBookingData = successfulBookingList
+                    successfulBookingData = getSampleSuccessfulBookingData()
                 )
             )
         },
@@ -110,7 +92,6 @@ fun BookingListScreen(
             bookingList = state.value.successfulBookingData,
             modifier = Modifier.Companion.weight(1f)
         )
-
     }
 
 }
@@ -173,11 +154,9 @@ private fun Tabs(
                 .fillMaxWidth()
                 .weight(1f)
         ) {
-            LazyColumn() {
+            LazyColumn {
                 items(bookingList) { successfulBookingData ->
-//                    BookingDetails()
                     BookingDetailsItem(successfulBookingData)
-
                 }
             }
         }
@@ -192,7 +171,7 @@ private fun BookingDetailsItem(successfulBookingData: SuccessfulBookingData) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "Luna‘s Salon",
+            text = successfulBookingData.salonName,
             style = TextStyle(
                 fontSize = 16.sp,
                 lineHeight = 22.5.sp,
@@ -205,7 +184,7 @@ private fun BookingDetailsItem(successfulBookingData: SuccessfulBookingData) {
 
         Row {
             Text(
-                text = "with Paty Sinclair",
+                text = "with ${successfulBookingData.professionalData.name}",
                 style = TextStyle(
                     fontSize = 16.sp,
                     fontFamily = FontFamily(Font(R.font.raleway_light)),
@@ -217,7 +196,7 @@ private fun BookingDetailsItem(successfulBookingData: SuccessfulBookingData) {
             Spacer(modifier = Modifier.weight(1f))
 
             Text(
-                text = "5.0 Kms",
+                text = "5.0 Kms", // TODO Must update distance calculation
                 style = TextStyle(
                     fontSize = 16.sp,
                     fontFamily = FontFamily(Font(R.font.raleway_light)),
@@ -229,7 +208,7 @@ private fun BookingDetailsItem(successfulBookingData: SuccessfulBookingData) {
         }
 
         Text(
-            text = "Basic Manicure 1 x",
+            text = successfulBookingData.serviceTypeList.map { it.title }.toString(),
             style = TextStyle(
                 fontSize = 16.sp,
                 fontFamily = FontFamily(Font(R.font.raleway_light)),
@@ -242,7 +221,7 @@ private fun BookingDetailsItem(successfulBookingData: SuccessfulBookingData) {
         Row {
 
             Text(
-                text = "8 Mar 2022",
+                text = successfulBookingData.bookDate.toHttpDateString(),
                 style = TextStyle(
                     fontSize = 16.sp,
                     fontFamily = FontFamily(Font(R.font.raleway_light)),
