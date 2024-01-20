@@ -45,41 +45,16 @@ import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 import com.faridnia.metime.util.LightAndDarkPreview
 import com.faridnia.metime.util.formatDateToDayAndDayOfWeekInTwoLines
 import com.faridnia.metime.util.formatTimeToHourInDay
-import com.faridnia.metime.util.getCurrentDateTime
 
 @LightAndDarkPreview
 @Composable
 fun PreviewProsCalendarScreen() {
-    val availableHours = mutableListOf<AvailableHour>()
-    for (i in 1..10) {
-        availableHours.add(
-            AvailableHour(
-                date = getCurrentDateTime(),
-            )
-        )
-    }
-
-    val availableDays = mutableListOf<AvailableDay>()
-    for (i in 1..10) {
-        availableDays.add(
-            AvailableDay(
-                date = getCurrentDateTime(), availableHours = availableHours
-            )
-        )
-
-    }
-
     MeTimeTheme {
         ProsCalendarScreen(
             state = remember {
                 mutableStateOf(
                     ProsCalState(
-                        professionalData = ProfessionalData(
-                            name = "Anna Smith",
-                            jobTitle = "Nailist",
-                            rate = 5.0f,
-                            availableDays = availableDays
-                        )
+                        professionalData = getSampleProfessionalData()
                     )
                 )
             }, navController = rememberNavController()
