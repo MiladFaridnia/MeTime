@@ -96,7 +96,7 @@ fun ChooseExpertScreen(
             verticalArrangement = Arrangement.spacedBy(12.dp),
             modifier = Modifier.padding(16.dp)
         ) {
-            items(getExperts()) {
+            items(items = getSampleExperts(), key = { it.id }) {
                 ExpertItem(it)
             }
         }
@@ -115,40 +115,6 @@ fun ChooseExpertScreen(
         Spacer(modifier = Modifier.height(40.dp))
     }
 }
-
-fun getExperts() = listOf(
-    Expert(
-        photoResourceId = R.drawable.manicure,
-        name = "Anna Smith",
-        description = "Nail designer",
-        rate = 4.8
-    ),
-    Expert(
-        photoResourceId = R.drawable.nail_1,
-        name = "Mrs Appleberry",
-        description = "Nail painter",
-        rate = 4.6
-    ),
-    Expert(
-        photoResourceId = R.drawable.gel_pedicure,
-        name = "Sara Jordan",
-        description = "Nail designer, painter",
-        rate = 4.5
-    ),
-    Expert(
-        photoResourceId = R.drawable.gel_pedicure,
-        name = "Beth Jess",
-        description = "Nail designer, Manicure expert",
-        rate = 4.2
-    ),
-    Expert(
-        photoResourceId = R.drawable.acrylic_extention,
-        name = "Mary Oven",
-        description = "Nail Designer",
-        rate = 4.2
-    )
-)
-
 
 
 

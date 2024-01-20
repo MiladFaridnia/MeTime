@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.faridnia.metime.R
 import com.faridnia.metime.presentation.ui.choose_expert.Expert
+import com.faridnia.metime.presentation.ui.choose_expert.getSampleExperts
 import com.faridnia.metime.util.LightAndDarkPreview
 
 @LightAndDarkPreview
@@ -32,12 +33,7 @@ import com.faridnia.metime.util.LightAndDarkPreview
 fun PreviewExpertItem() {
     MaterialTheme {
         ExpertItem(
-            Expert(
-                photoResourceId = R.drawable.gel_pedicure,
-                name = "Beth Jess",
-                description = "Nail designer, Manicure expert",
-                rate = 4.2
-            )
+            getSampleExperts().first()
         )
     }
 }

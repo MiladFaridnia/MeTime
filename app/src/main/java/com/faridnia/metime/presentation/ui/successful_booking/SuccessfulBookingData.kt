@@ -6,8 +6,10 @@ import com.faridnia.metime.presentation.ui.professionals_calendar.ProfessionalDa
 import com.faridnia.metime.presentation.ui.professionals_calendar.getSampleProfessionalData
 import com.faridnia.metime.util.getCurrentDateTime
 import java.util.Date
+import java.util.UUID
 
 data class SuccessfulBookingData(
+    val id : String = UUID.randomUUID().toString(),
     val salonName: String,
     val address: String,
     val bookDate: Date,

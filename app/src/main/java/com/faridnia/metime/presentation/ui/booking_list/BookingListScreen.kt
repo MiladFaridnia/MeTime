@@ -152,7 +152,7 @@ private fun Tabs(
                 .weight(1f)
         ) {
             LazyColumn {
-                items(bookingList) { successfulBookingData ->
+                items(items = bookingList, key = { it.id }) { successfulBookingData ->
                     BookingDetailsItem(successfulBookingData)
                 }
             }

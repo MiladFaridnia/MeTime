@@ -103,7 +103,7 @@ fun ChooseServiceScreen(
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
         ) {
-            items(getSampleServices()) {
+            items(getSampleServices(), key = { it.id }) {
                 PhotoItem(it) {
                     navController.navigate(Screen.ChooseServiceTypeScreen.route)
                 }

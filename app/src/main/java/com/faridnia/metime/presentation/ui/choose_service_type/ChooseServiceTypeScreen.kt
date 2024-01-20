@@ -95,7 +95,7 @@ fun ChooseServiceTypeScreen(
             verticalArrangement = Arrangement.spacedBy(12.dp),
             modifier = Modifier.padding(16.dp)
         ) {
-            items(getSampleServiceTypes()) {
+            items(items = getSampleServiceTypes(), key = { it.id }) {
                 ServiceTypeItem(it) {
                     navController.navigate(Screen.ChooseExpertScreen.route)
                 }
