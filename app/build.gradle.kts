@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.google.dagger.hilt.android")
+ //   id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
 }
 
@@ -57,11 +57,11 @@ android {
 
     }
 
-    packaging {
+  /*  packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
-    }
+    }*/
 }
 
 dependencies {
