@@ -79,15 +79,15 @@ dependencies {
     androidTestImplementation(Testing.junitAndroidExt)//"androidx.test.ext:junit:1.1.5"
     androidTestImplementation(Testing.espresso)//"androidx.test.espresso:espresso-core:3.5.1"
     androidTestImplementation(platform(Compose.bomeCompose))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    androidTestImplementation(Testing.composeUiTest)
+    debugImplementation(Compose.uiToolingPreview)
+    debugImplementation(Compose.uiToolingManifest)
 
     // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
-    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
+    implementation(Retrofit.retrofit)
+    implementation(Retrofit.gsonConverter)
+    implementation(Retrofit.okHttp)
+    implementation(Retrofit.okHttpLoggingInterceptor)
 
     // Dagger - Hilt
     implementation(DaggerHilt.hiltAndroid)
