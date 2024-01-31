@@ -20,6 +20,8 @@ object Compose {
     private const val bomeComposeVersion = "2023.03.00"
     const val bomeCompose = "androidx.compose:compose-bom:$bomeComposeVersion"
 
+    const val ui = "androidx.compose.ui:ui"
+
     private const val lifecycleVersion = "2.4.0"
     const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion"
 }

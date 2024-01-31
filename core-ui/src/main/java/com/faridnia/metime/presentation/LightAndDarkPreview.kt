@@ -1,7 +1,6 @@
-package com.faridnia.metime.util
+package com.faridnia.metime.presentation
 
 import android.content.res.Configuration
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)

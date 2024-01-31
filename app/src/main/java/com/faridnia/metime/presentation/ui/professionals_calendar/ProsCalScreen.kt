@@ -27,15 +27,15 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
-import com.faridnia.metime.presentation.component.DaysInMonthComponent
-import com.faridnia.metime.presentation.component.HoursInDayComponent
-import com.faridnia.metime.presentation.component.PrimaryButton
-import com.faridnia.metime.presentation.component.ProfileComponent
+import com.faridnia.metime.onboarding_presentation.presentaition.component.DaysInMonthComponent
+import com.faridnia.metime.onboarding_presentation.presentaition.component.HoursInDayComponent
+import com.faridnia.metime.onboarding_presentation.presentaition.component.PrimaryButton
+import com.faridnia.metime.onboarding_presentation.presentaition.component.ProfileComponent
 import com.faridnia.metime.presentation.nav_graph.Screen
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
-import com.faridnia.metime.util.LightAndDarkPreview
+import com.faridnia.booking_domain.presentation.LightAndDarkPreview
 
-@LightAndDarkPreview
+@com.faridnia.booking_domain.presentation.LightAndDarkPreview
 @Composable
 fun PreviewProsCalendarScreen() {
     MeTimeTheme {
@@ -66,7 +66,7 @@ fun ProsCalendarScreen(
 
         Spacer(modifier = Modifier.height(70.dp))
 
-        ProfileComponent(state)
+        com.faridnia.metime.onboarding_presentation.presentaition.component.ProfileComponent(state)
 
         Spacer(modifier = Modifier.height(50.dp))
 
@@ -93,15 +93,19 @@ fun ProsCalendarScreen(
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        DaysInMonthComponent(state.value.professionalData.availableDays)
+        com.faridnia.metime.onboarding_presentation.presentaition.component.DaysInMonthComponent(
+            state.value.professionalData.availableDays
+        )
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        HoursInDayComponent(state.value.professionalData.availableDays.first().availableHours)
+        com.faridnia.metime.onboarding_presentation.presentaition.component.HoursInDayComponent(
+            state.value.professionalData.availableDays.first().availableHours
+        )
 
         Spacer(modifier = Modifier.weight(1.0f))
 
-        PrimaryButton(
+        com.faridnia.metime.onboarding_presentation.presentaition.component.PrimaryButton(
             modifier = Modifier.fillMaxWidth(),
             buttonText = "Book",
             isEnabled = true,

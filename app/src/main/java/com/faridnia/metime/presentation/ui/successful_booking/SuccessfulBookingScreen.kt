@@ -25,21 +25,20 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
-import com.faridnia.metime.presentation.component.BookingDetails
-import com.faridnia.metime.presentation.component.PrimaryButton
-import com.faridnia.metime.presentation.component.SecondaryButton
+import com.faridnia.metime.onboarding_presentation.presentaition.component.BookingDetails
+import com.faridnia.metime.onboarding_presentation.presentaition.component.PrimaryButton
+import com.faridnia.metime.onboarding_presentation.presentaition.component.SecondaryButton
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
-import com.faridnia.metime.util.LightAndDarkPreview
+import com.faridnia.booking_domain.presentation.LightAndDarkPreview
 
 
-@LightAndDarkPreview
+@com.faridnia.booking_domain.presentation.LightAndDarkPreview
 @Composable
 fun PreviewSuccessfulBookingScreen() {
     MeTimeTheme {
@@ -113,12 +112,12 @@ fun SuccessfulBookingScreen(
                 )
             )
 
-            BookingDetails()
+            com.faridnia.metime.onboarding_presentation.presentaition.component.BookingDetails()
         }
 
         Spacer(modifier = Modifier.weight(1f))
 
-        PrimaryButton(
+        com.faridnia.metime.onboarding_presentation.presentaition.component.PrimaryButton(
             modifier = Modifier.fillMaxWidth(),
             buttonText = "Keep booking",
             isEnabled = true,
@@ -128,7 +127,7 @@ fun SuccessfulBookingScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        SecondaryButton(
+        com.faridnia.metime.onboarding_presentation.presentaition.component.SecondaryButton(
             modifier = Modifier.fillMaxWidth(),
             buttonText = "Main Page",
             isEnabled = true,

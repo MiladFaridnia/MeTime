@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.sp
 import com.faridnia.metime.R
 import com.faridnia.metime.presentation.ui.choose_service.Service
 import com.faridnia.metime.presentation.ui.choose_service.getSampleServices
-import com.faridnia.metime.util.LightAndDarkPreview
+import com.faridnia.metime.presentation.LightAndDarkPreview
 
 @LightAndDarkPreview
 @Composable

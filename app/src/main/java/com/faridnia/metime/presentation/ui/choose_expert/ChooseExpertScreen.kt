@@ -28,13 +28,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
-import com.faridnia.metime.presentation.component.ExpertItem
-import com.faridnia.metime.presentation.component.PagerIndicator
-import com.faridnia.metime.presentation.component.SecondaryButton
+import com.faridnia.metime.onboarding_presentation.presentaition.component.ExpertItem
+import com.faridnia.metime.onboarding_presentation.presentaition.component.PagerIndicator
+import com.faridnia.metime.onboarding_presentation.presentaition.component.SecondaryButton
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
-import com.faridnia.metime.util.LightAndDarkPreview
+import com.faridnia.booking_domain.presentation.LightAndDarkPreview
 
-@LightAndDarkPreview
+@com.faridnia.booking_domain.presentation.LightAndDarkPreview
 @Composable
 fun PreviewChooseExpertScreen() {
     MeTimeTheme {
@@ -74,7 +74,9 @@ fun ChooseExpertScreen(
 
         Spacer(modifier = Modifier.height(50.dp))
 
-        PagerIndicator(selectedPageIndex = 2)
+        com.faridnia.metime.onboarding_presentation.presentaition.component.PagerIndicator(
+            selectedPageIndex = 2
+        )
 
         Spacer(modifier = Modifier.height(40.dp))
 
@@ -97,13 +99,13 @@ fun ChooseExpertScreen(
             modifier = Modifier.padding(16.dp)
         ) {
             items(items = getSampleExperts(), key = { it.id }) {
-                ExpertItem(it)
+                com.faridnia.metime.onboarding_presentation.presentaition.component.ExpertItem(it)
             }
         }
 
         Spacer(modifier = Modifier.weight(1.0f))
 
-        SecondaryButton(
+        com.faridnia.metime.onboarding_presentation.presentaition.component.SecondaryButton(
             modifier = Modifier.fillMaxWidth(),
             buttonText = "I don‘t have a preference",
             isEnabled = true,

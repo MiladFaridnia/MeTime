@@ -25,12 +25,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
-import com.faridnia.metime.presentation.component.PrimaryButton
-import com.faridnia.metime.presentation.component.SecondaryButton
+import com.faridnia.metime.onboarding_presentation.presentaition.component.PrimaryButton
+import com.faridnia.metime.onboarding_presentation.presentaition.component.SecondaryButton
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
-import com.faridnia.metime.util.LightAndDarkPreview
+import com.faridnia.booking_domain.presentation.LightAndDarkPreview
 
-@LightAndDarkPreview
+@com.faridnia.booking_domain.presentation.LightAndDarkPreview
 @Composable
 fun PreviewLoginBottomSheetScreen() {
     MeTimeTheme {
@@ -85,7 +85,7 @@ fun LoginBottomSheetScreen(
 
         Column(horizontalAlignment = CenterHorizontally) {
 
-            PrimaryButton(
+            com.faridnia.metime.onboarding_presentation.presentaition.component.PrimaryButton(
                 modifier = Modifier.fillMaxWidth(),
                 buttonText = "Log In",
                 isEnabled = true,
@@ -93,7 +93,7 @@ fun LoginBottomSheetScreen(
             ) {
             }
 
-            SecondaryButton(
+            com.faridnia.metime.onboarding_presentation.presentaition.component.SecondaryButton(
                 modifier = Modifier,
                 buttonText = "Skip",
                 isEnabled = true,
