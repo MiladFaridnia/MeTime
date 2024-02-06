@@ -27,13 +27,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
+import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.component.DaysInMonthComponent
 import com.faridnia.metime.presentation.component.HoursInDayComponent
 import com.faridnia.metime.presentation.component.PrimaryButton
 import com.faridnia.metime.presentation.component.ProfileComponent
 import com.faridnia.metime.presentation.nav_graph.Screen
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
-import com.faridnia.metime.util.LightAndDarkPreview
 
 @LightAndDarkPreview
 @Composable
@@ -93,11 +93,15 @@ fun ProsCalendarScreen(
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        DaysInMonthComponent(state.value.professionalData.availableDays)
+        DaysInMonthComponent(
+            state.value.professionalData.availableDays
+        )
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        HoursInDayComponent(state.value.professionalData.availableDays.first().availableHours)
+        HoursInDayComponent(
+            state.value.professionalData.availableDays.first().availableHours
+        )
 
         Spacer(modifier = Modifier.weight(1.0f))
 

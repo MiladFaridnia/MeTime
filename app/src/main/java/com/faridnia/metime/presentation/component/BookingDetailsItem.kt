@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.sp
 import com.faridnia.metime.R
 import com.faridnia.metime.presentation.ui.successful_booking.SuccessfulBookingData
 import com.faridnia.metime.presentation.ui.successful_booking.getSampleSuccessfulBookingData
-import com.faridnia.metime.util.LightAndDarkPreview
+import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.util.formatTimeToDayInWeek
 
 @LightAndDarkPreview

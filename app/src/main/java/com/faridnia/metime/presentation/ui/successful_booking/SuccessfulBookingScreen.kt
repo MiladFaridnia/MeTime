@@ -25,18 +25,17 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
+import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.component.BookingDetails
 import com.faridnia.metime.presentation.component.PrimaryButton
 import com.faridnia.metime.presentation.component.SecondaryButton
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
-import com.faridnia.metime.util.LightAndDarkPreview
 
 
 @LightAndDarkPreview

@@ -75,6 +75,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.navigation:navigation-runtime-ktx:2.7.6")
+    implementation(project(":core-ui"))
     testImplementation(Testing.junit4)//"junit:junit:4.13.2"
     androidTestImplementation(Testing.junitAndroidExt)//"androidx.test.ext:junit:1.1.5"
     androidTestImplementation(Testing.espresso)//"androidx.test.espresso:espresso-core:3.5.1"

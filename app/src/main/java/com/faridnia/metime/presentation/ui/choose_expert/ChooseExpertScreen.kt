@@ -28,11 +28,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
+import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.component.ExpertItem
 import com.faridnia.metime.presentation.component.PagerIndicator
 import com.faridnia.metime.presentation.component.SecondaryButton
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
-import com.faridnia.metime.util.LightAndDarkPreview
 
 @LightAndDarkPreview
 @Composable
@@ -74,7 +74,9 @@ fun ChooseExpertScreen(
 
         Spacer(modifier = Modifier.height(50.dp))
 
-        PagerIndicator(selectedPageIndex = 2)
+        PagerIndicator(
+            selectedPageIndex = 2
+        )
 
         Spacer(modifier = Modifier.height(40.dp))
 
