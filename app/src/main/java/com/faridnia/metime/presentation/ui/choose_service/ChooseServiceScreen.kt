@@ -37,13 +37,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
-import com.faridnia.metime.onboarding_presentation.presentaition.component.PhotoItem
-import com.faridnia.metime.onboarding_presentation.presentaition.component.SecondaryButton
+import com.faridnia.metime.presentation.LightAndDarkPreview
+import com.faridnia.metime.presentation.component.PhotoItem
+import com.faridnia.metime.presentation.component.SecondaryButton
 import com.faridnia.metime.presentation.nav_graph.Screen
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
-import com.faridnia.booking_domain.presentation.LightAndDarkPreview
 
-@com.faridnia.booking_domain.presentation.LightAndDarkPreview
+@LightAndDarkPreview
 @Composable
 fun PreviewChooseServiceScreen() {
     MeTimeTheme {
@@ -104,7 +104,7 @@ fun ChooseServiceScreen(
             columns = GridCells.Fixed(2),
         ) {
             items(getSampleServices(), key = { it.id }) {
-                com.faridnia.metime.onboarding_presentation.presentaition.component.PhotoItem(it) {
+                PhotoItem(it) {
                     navController.navigate(Screen.ChooseServiceTypeScreen.route)
                 }
             }
@@ -112,7 +112,7 @@ fun ChooseServiceScreen(
 
         Spacer(modifier = Modifier.weight(1.0f))
 
-        com.faridnia.metime.onboarding_presentation.presentaition.component.SecondaryButton(
+        SecondaryButton(
             modifier = Modifier.weight(1.0f),
             buttonText = "Skip",
             isEnabled = true,

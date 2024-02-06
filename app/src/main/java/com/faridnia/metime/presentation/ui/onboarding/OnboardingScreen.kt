@@ -31,13 +31,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
-import com.faridnia.metime.onboarding_presentation.presentaition.component.PrimaryButton
-import com.faridnia.metime.onboarding_presentation.presentaition.component.SecondaryButton
+import com.faridnia.metime.presentation.LightAndDarkPreview
+import com.faridnia.metime.presentation.component.PrimaryButton
+import com.faridnia.metime.presentation.component.SecondaryButton
 import com.faridnia.metime.presentation.nav_graph.Screen
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
-import com.faridnia.booking_domain.presentation.LightAndDarkPreview
 
-@com.faridnia.booking_domain.presentation.LightAndDarkPreview
+@LightAndDarkPreview
 @Composable
 fun PreviewOnboardingScreen() {
     MeTimeTheme {
@@ -119,7 +119,7 @@ fun OnboardingScreen(
             verticalAlignment = Alignment.Top,
         ) {
 
-            com.faridnia.metime.onboarding_presentation.presentaition.component.SecondaryButton(
+            SecondaryButton(
                 modifier = Modifier.weight(1.0f),
                 buttonText = "Skip",
                 isEnabled = true,
@@ -127,7 +127,7 @@ fun OnboardingScreen(
             ) {
             }
 
-            com.faridnia.metime.onboarding_presentation.presentaition.component.PrimaryButton(
+            PrimaryButton(
                 modifier = Modifier.weight(1.0f),
                 buttonText = "Start",
                 isEnabled = true,

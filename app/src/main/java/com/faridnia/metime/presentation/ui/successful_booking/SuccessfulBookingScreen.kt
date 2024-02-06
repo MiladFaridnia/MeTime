@@ -31,14 +31,14 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
-import com.faridnia.metime.onboarding_presentation.presentaition.component.BookingDetails
-import com.faridnia.metime.onboarding_presentation.presentaition.component.PrimaryButton
-import com.faridnia.metime.onboarding_presentation.presentaition.component.SecondaryButton
+import com.faridnia.metime.presentation.LightAndDarkPreview
+import com.faridnia.metime.presentation.component.BookingDetails
+import com.faridnia.metime.presentation.component.PrimaryButton
+import com.faridnia.metime.presentation.component.SecondaryButton
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
-import com.faridnia.booking_domain.presentation.LightAndDarkPreview
 
 
-@com.faridnia.booking_domain.presentation.LightAndDarkPreview
+@LightAndDarkPreview
 @Composable
 fun PreviewSuccessfulBookingScreen() {
     MeTimeTheme {
@@ -112,12 +112,12 @@ fun SuccessfulBookingScreen(
                 )
             )
 
-            com.faridnia.metime.onboarding_presentation.presentaition.component.BookingDetails()
+            BookingDetails()
         }
 
         Spacer(modifier = Modifier.weight(1f))
 
-        com.faridnia.metime.onboarding_presentation.presentaition.component.PrimaryButton(
+        PrimaryButton(
             modifier = Modifier.fillMaxWidth(),
             buttonText = "Keep booking",
             isEnabled = true,
@@ -127,7 +127,7 @@ fun SuccessfulBookingScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        com.faridnia.metime.onboarding_presentation.presentaition.component.SecondaryButton(
+        SecondaryButton(
             modifier = Modifier.fillMaxWidth(),
             buttonText = "Main Page",
             isEnabled = true,

@@ -27,13 +27,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.R
-import com.faridnia.metime.onboarding_presentation.presentaition.component.PagerIndicator
-import com.faridnia.metime.onboarding_presentation.presentaition.component.ServiceTypeItem
+import com.faridnia.metime.presentation.LightAndDarkPreview
+import com.faridnia.metime.presentation.component.PagerIndicator
+import com.faridnia.metime.presentation.component.ServiceTypeItem
 import com.faridnia.metime.presentation.nav_graph.Screen
 import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
-import com.faridnia.booking_domain.presentation.LightAndDarkPreview
 
-@com.faridnia.booking_domain.presentation.LightAndDarkPreview
+@LightAndDarkPreview
 @Composable
 fun PreviewChooseServiceScreen() {
     MeTimeTheme {
@@ -73,7 +73,7 @@ fun ChooseServiceTypeScreen(
 
         Spacer(modifier = Modifier.height(50.dp))
 
-        com.faridnia.metime.onboarding_presentation.presentaition.component.PagerIndicator(
+          PagerIndicator(
             selectedPageIndex = 2
         )
 
@@ -98,7 +98,7 @@ fun ChooseServiceTypeScreen(
             modifier = Modifier.padding(16.dp)
         ) {
             items(items = getSampleServiceTypes(), key = { it.id }) {
-                com.faridnia.metime.onboarding_presentation.presentaition.component.ServiceTypeItem(
+                  ServiceTypeItem(
                     it
                 ) {
                     navController.navigate(Screen.ChooseExpertScreen.route)
