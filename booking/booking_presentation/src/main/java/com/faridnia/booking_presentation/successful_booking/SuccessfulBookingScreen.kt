@@ -1,4 +1,4 @@
-package com.faridnia.metime.presentation.ui.successful_booking
+package com.faridnia.booking_presentation.successful_booking
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -30,24 +30,21 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.faridnia.metime.R
+import com.faridnia.core.R
 import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.component.BookingDetails
 import com.faridnia.metime.presentation.component.PrimaryButton
 import com.faridnia.metime.presentation.component.SecondaryButton
-import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 
 
 @LightAndDarkPreview
 @Composable
 fun PreviewSuccessfulBookingScreen() {
-    MeTimeTheme {
-        SuccessfulBookingScreen(
+    SuccessfulBookingScreen(
 //            state = remember { mutableStateOf(State()) },
 //            onEvent = {},
-            navController = rememberNavController()
-        )
-    }
+        navController = rememberNavController()
+    )
 }
 
 @Composable
@@ -56,12 +53,13 @@ fun SuccessfulBookingScreen(
 //    onEvent: (ChooseServiceEvent) -> Unit,
     navController: NavController
 ) {
-
     Column(
         horizontalAlignment = CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.background)
+            .background(color = MaterialTheme.colorScheme.background
+//            MeTimeTheme.colorScheme . background
+            )
             .padding(
                 start = 24.dp, end = 24.dp
             ),
@@ -139,7 +137,6 @@ fun SuccessfulBookingScreen(
         Spacer(modifier = Modifier.height(40.dp))
 
     }
-
 }
 
 @Composable

@@ -1,4 +1,4 @@
-package com.faridnia.metime.presentation.ui.booking_list
+package com.faridnia.booking_presentation.booking_list
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -34,12 +34,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.faridnia.metime.R
+import com.faridnia.core.R
 import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.component.BookingDetailsItem
-import com.faridnia.metime.presentation.ui.successful_booking.SuccessfulBookingData
-import com.faridnia.metime.presentation.ui.successful_booking.SuccessfulBookingState
-import com.faridnia.metime.presentation.ui.successful_booking.getSampleSuccessfulBookingData
+import com.faridnia.metime.data.SuccessfulBookingData
+import com.faridnia.booking_presentation.successful_booking.SuccessfulBookingState
+import com.faridnia.metime.data.getSampleSuccessfulBookingData
 
 @LightAndDarkPreview
 @Composable

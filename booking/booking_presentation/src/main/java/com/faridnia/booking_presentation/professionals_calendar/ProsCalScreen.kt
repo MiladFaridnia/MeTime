@@ -1,4 +1,4 @@
-package com.faridnia.metime.presentation.ui.professionals_calendar
+package com.faridnia.booking_presentation.professionals_calendar
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -26,14 +26,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.faridnia.metime.R
+import com.faridnia.core.R
+import com.faridnia.metime.data.getSampleProfessionalData
 import com.faridnia.metime.presentation.LightAndDarkPreview
+import com.faridnia.metime.presentation.MeTimeTheme
 import com.faridnia.metime.presentation.component.DaysInMonthComponent
 import com.faridnia.metime.presentation.component.HoursInDayComponent
 import com.faridnia.metime.presentation.component.PrimaryButton
 import com.faridnia.metime.presentation.component.ProfileComponent
-import com.faridnia.metime.presentation.nav_graph.Screen
-import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 
 @LightAndDarkPreview
 @Composable
@@ -66,7 +66,7 @@ fun ProsCalendarScreen(
 
         Spacer(modifier = Modifier.height(70.dp))
 
-        ProfileComponent(state)
+        ProfileComponent(state.value.professionalData.name)
 
         Spacer(modifier = Modifier.height(50.dp))
 
@@ -111,7 +111,7 @@ fun ProsCalendarScreen(
             isEnabled = true,
             isLoading = false
         ) {
-            navController.navigate(Screen.ChooseServiceScreen.route)
+            //     navController.navigate(Screen.ChooseServiceScreen.route)
         }
 
         Spacer(modifier = Modifier.height(40.dp))
