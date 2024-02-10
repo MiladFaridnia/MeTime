@@ -23,9 +23,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.faridnia.metime.R
-import com.faridnia.metime.presentation.ui.professionals_calendar.AvailableDay
-import com.faridnia.metime.util.formatDateToDayAndDayOfWeekInTwoLines
+import com.faridnia.core.R
+import com.faridnia.metime.data.AvailableDay
+import com.faridnia.metime.formatDateToDayAndDayOfWeekInTwoLines
 
 @Composable
 fun DaysInMonthComponent(availableDays: List<AvailableDay>) {

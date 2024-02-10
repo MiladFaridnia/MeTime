@@ -1,7 +1,7 @@
-package com.faridnia.metime.presentation.ui.professionals_calendar
+package com.faridnia.metime.data
 
 import androidx.compose.runtime.Immutable
-import com.faridnia.metime.util.getCurrentDateTime
+import com.faridnia.metime.getCurrentDateTime
 import java.util.Date
 import java.util.UUID
 

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -19,12 +18,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.faridnia.metime.R
-import com.faridnia.metime.presentation.ui.professionals_calendar.ProsCalState
+import com.faridnia.core.R
 
 
 @Composable
-fun ProfileComponent(state: State<ProsCalState>) {
+fun ProfileComponent(name: String) {
     Image(
         modifier = Modifier
             .width(98.dp)
@@ -35,7 +33,8 @@ fun ProfileComponent(state: State<ProsCalState>) {
     )
 
     Text(
-        text = state.value.professionalData.name, style = TextStyle(
+        text = name,
+        style = TextStyle(
             fontSize = 24.sp,
             fontFamily = FontFamily(Font(R.font.raleway_light)),
             fontWeight = FontWeight(600),

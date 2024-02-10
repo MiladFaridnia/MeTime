@@ -16,18 +16,15 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.faridnia.metime.R
-import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
+import com.faridnia.core.R
 import com.faridnia.metime.presentation.LightAndDarkPreview
 
 @LightAndDarkPreview
 @Composable
 fun PreviewChooseServiceScreen() {
-    MeTimeTheme {
         PagerIndicator(
             selectedPageIndex = 2
         )
-    }
 }
 
 @Composable

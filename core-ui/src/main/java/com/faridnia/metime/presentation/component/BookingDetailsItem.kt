@@ -16,11 +16,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.faridnia.metime.R
-import com.faridnia.metime.presentation.ui.successful_booking.SuccessfulBookingData
-import com.faridnia.metime.presentation.ui.successful_booking.getSampleSuccessfulBookingData
+import com.faridnia.core.R
+import com.faridnia.metime.data.SuccessfulBookingData
+import com.faridnia.metime.data.getSampleSuccessfulBookingData
 import com.faridnia.metime.presentation.LightAndDarkPreview
-import com.faridnia.metime.util.formatTimeToDayInWeek
+import com.faridnia.metime.formatTimeToDayInWeek
 
 @LightAndDarkPreview
 @Composable

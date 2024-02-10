@@ -23,10 +23,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.faridnia.metime.R
+import com.faridnia.core.R
+import com.faridnia.metime.data.Expert
+import com.faridnia.metime.data.getSampleExperts
 import com.faridnia.metime.presentation.LightAndDarkPreview
-import com.faridnia.metime.presentation.ui.choose_expert.Expert
-import com.faridnia.metime.presentation.ui.choose_expert.getSampleExperts
 
 @LightAndDarkPreview
 @Composable

@@ -1,4 +1,4 @@
-package com.faridnia.metime.util
+package com.faridnia.metime
 
 import java.text.SimpleDateFormat
 import java.util.Calendar

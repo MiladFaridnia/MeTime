@@ -1,10 +1,7 @@
-package com.faridnia.metime.presentation.ui.successful_booking
+package com.faridnia.metime.data
 
-import com.faridnia.metime.presentation.ui.choose_service_type.ServiceType
-import com.faridnia.metime.presentation.ui.choose_service_type.getSampleServiceTypes
-import com.faridnia.metime.presentation.ui.professionals_calendar.ProfessionalData
-import com.faridnia.metime.presentation.ui.professionals_calendar.getSampleProfessionalData
-import com.faridnia.metime.util.getCurrentDateTime
+
+import com.faridnia.metime.getCurrentDateTime
 import java.util.Date
 import java.util.UUID
 

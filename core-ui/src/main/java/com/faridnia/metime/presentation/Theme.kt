@@ -1,4 +1,4 @@
-package com.faridnia.metime.presentation.ui.theme
+package com.faridnia.metime.presentation
 
 import android.app.Activity
 import android.os.Build
