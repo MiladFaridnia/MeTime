@@ -1,4 +1,4 @@
-package com.faridnia.metime.presentation.ui.login_bottom_sheet
+package com.faridnia.metime.onboarding_presentation.presentaition.login_bottom_sheet
 
 data class LoginBottomSheetState(
     val isLoading: Boolean = false,

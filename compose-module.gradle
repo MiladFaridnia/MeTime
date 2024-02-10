@@ -19,7 +19,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion Compose.composeCompilerVersion
+        kotlinCompilerExtensionVersion "1.5.9"//Compose.composeCompilerVersion
     }
     buildTypes {
         release {
@@ -30,16 +30,16 @@ android {
     compileOptions {
         coreLibraryDesugaringEnabled true
 
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_18
+        targetCompatibility JavaVersion.VERSION_18
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '18'
     }
 }
 
 dependencies {
-    implementation Compose.compiler
+    implementation "androidx.compose.compiler:compiler:1.5.9"//Compose.compiler
     implementation Compose.ui
     implementation Compose.uiToolingPreview
     implementation Compose.hiltNavigationCompose

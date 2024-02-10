@@ -53,7 +53,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.5"
+        kotlinCompilerExtensionVersion = "1.5.9"
 
     }
 
@@ -65,17 +65,24 @@ android {
 }
 
 dependencies {
+    "implementation"(project(Modules.core))
+    "implementation"(project(Modules.coreUi))
+
+    "implementation"(project(Modules.bookingDomain))
+    "implementation"(project(Modules.bookingData))
+    "implementation"(project(Modules.bookingPresentation))
+
+    "implementation"(project(Modules.onboardingData))
+    "implementation"(project(Modules.onboardingDomain))
+    "implementation"(project(Modules.onboardingPresentation))
 
     implementation(AndroidX.coreKtx)//"androidx.core:core-ktx:1.12.0"
     implementation(AndroidX.lifecycleRuntime)//"androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
-    implementation(Compose.activityCompose)//"androidx.activity:activity-compose:1.8.2"
-    implementation(platform(Compose.bomeCompose))//"androidx.compose:compose-bom:2023.03.00"
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
+
     implementation("androidx.navigation:navigation-runtime-ktx:2.7.6")
-    implementation(project(":core-ui"))
+//    implementation("androidx.compose.material3:material3-android:1.2.0")
+    implementation("androidx.compose.material3:material3")
+
     testImplementation(Testing.junit4)//"junit:junit:4.13.2"
     androidTestImplementation(Testing.junitAndroidExt)//"androidx.test.ext:junit:1.1.5"
     androidTestImplementation(Testing.espresso)//"androidx.test.espresso:espresso-core:3.5.1"

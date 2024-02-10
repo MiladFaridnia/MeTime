@@ -1,10 +1,11 @@
-package com.faridnia.metime.presentation.ui.choose_service_type
+package com.faridnia.metime.onboarding_presentation.presentaition.choose_expert
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -26,29 +27,27 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.faridnia.metime.R
+import com.faridnia.metime.data.getSampleExperts
 import com.faridnia.metime.presentation.LightAndDarkPreview
+import com.faridnia.metime.presentation.component.ExpertItem
 import com.faridnia.metime.presentation.component.PagerIndicator
-import com.faridnia.metime.presentation.component.ServiceTypeItem
-import com.faridnia.metime.presentation.nav_graph.Screen
-import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
+import com.faridnia.metime.presentation.component.SecondaryButton
+import com.faridnia.core.R
 
 @LightAndDarkPreview
 @Composable
-fun PreviewChooseServiceScreen() {
-    MeTimeTheme {
-        ChooseServiceTypeScreen(
-            state = remember { mutableStateOf(ChooseServiceTypeState()) },
-            onEvent = {},
-            navController = rememberNavController()
-        )
-    }
+fun PreviewChooseExpertScreen() {
+    ChooseExpertScreen(
+        state = remember { mutableStateOf(ChooseExpertState()) },
+        onEvent = {},
+        navController = rememberNavController()
+    )
 }
 
 @Composable
-fun ChooseServiceTypeScreen(
-    state: State<ChooseServiceTypeState>,
-    onEvent: (ChooseServiceTypeEvent) -> Unit,
+fun ChooseExpertScreen(
+    state: State<ChooseExpertState>,
+    onEvent: (ChooseExpertEvent) -> Unit,
     navController: NavController
 ) {
 
@@ -73,7 +72,7 @@ fun ChooseServiceTypeScreen(
 
         Spacer(modifier = Modifier.height(50.dp))
 
-          PagerIndicator(
+        PagerIndicator(
             selectedPageIndex = 2
         )
 
@@ -97,17 +96,23 @@ fun ChooseServiceTypeScreen(
             verticalArrangement = Arrangement.spacedBy(12.dp),
             modifier = Modifier.padding(16.dp)
         ) {
-            items(items = getSampleServiceTypes(), key = { it.id }) {
-                  ServiceTypeItem(
-                    it
-                ) {
-                    navController.navigate(Screen.ChooseExpertScreen.route)
-                }
+            items(items = getSampleExperts(), key = { it.id }) {
+                ExpertItem(it)
             }
         }
 
-        Spacer(modifier = Modifier.height(40.dp))
+        Spacer(modifier = Modifier.weight(1.0f))
 
+        SecondaryButton(
+            modifier = Modifier.fillMaxWidth(),
+            buttonText = "I don‘t have a preference",
+            isEnabled = true,
+            isLoading = false
+        ) {
+
+        }
+
+        Spacer(modifier = Modifier.height(40.dp))
     }
 }
 

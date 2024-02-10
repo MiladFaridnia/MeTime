@@ -1,4 +1,4 @@
-package com.faridnia.metime.presentation.ui.onboarding
+package com.faridnia.metime.onboarding_presentation.presentaition.component.onboarding
 
 data class OnboardingState(
     val isLoading: Boolean = false,

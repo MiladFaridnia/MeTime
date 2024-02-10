@@ -1,4 +1,4 @@
-package com.faridnia.metime.presentation.ui.choose_service
+package com.faridnia.metime.onboarding_presentation.presentaition.choose_service
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -36,23 +36,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.faridnia.metime.R
+import com.faridnia.core.R
+import com.faridnia.metime.data.getSampleServices
 import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.component.PhotoItem
 import com.faridnia.metime.presentation.component.SecondaryButton
-import com.faridnia.metime.presentation.nav_graph.Screen
-import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
 
 @LightAndDarkPreview
 @Composable
 fun PreviewChooseServiceScreen() {
-    MeTimeTheme {
         ChooseServiceScreen(
             state = remember { mutableStateOf(ChooseServiceState()) },
             onEvent = {},
             navController = rememberNavController()
         )
-    }
 }
 
 @Composable
@@ -105,7 +102,7 @@ fun ChooseServiceScreen(
         ) {
             items(getSampleServices(), key = { it.id }) {
                 PhotoItem(it) {
-                    navController.navigate(Screen.ChooseServiceTypeScreen.route)
+                  //  navController.navigate(Screen.ChooseServiceTypeScreen.route)
                 }
             }
         }

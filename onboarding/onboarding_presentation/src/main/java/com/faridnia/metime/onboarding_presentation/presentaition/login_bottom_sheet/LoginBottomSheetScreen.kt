@@ -1,10 +1,7 @@
-package com.faridnia.metime.presentation.ui.onboarding
+package com.faridnia.metime.onboarding_presentation.presentaition.login_bottom_sheet
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,11 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -30,29 +24,23 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.faridnia.metime.R
 import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.component.PrimaryButton
 import com.faridnia.metime.presentation.component.SecondaryButton
-import com.faridnia.metime.presentation.nav_graph.Screen
-import com.faridnia.metime.presentation.ui.theme.MeTimeTheme
+import com.faridnia.core.R
 
 @LightAndDarkPreview
 @Composable
-fun PreviewOnboardingScreen() {
-    MeTimeTheme {
-        OnboardingScreen(
-            state = remember { mutableStateOf(OnboardingState()) },
-            onEvent = {},
+fun PreviewLoginBottomSheetScreen() {
+        LoginBottomSheetScreen(
+            state = remember { mutableStateOf(LoginBottomSheetState()) },
             navController = rememberNavController()
         )
-    }
 }
 
 @Composable
-fun OnboardingScreen(
-    state: State<OnboardingState>,
-    onEvent: (OnboardingEvent) -> Unit,
+fun LoginBottomSheetScreen(
+    state: State<LoginBottomSheetState>,
     navController: NavController
 ) {
 
@@ -63,48 +51,26 @@ fun OnboardingScreen(
             .background(color = MaterialTheme.colorScheme.background)
             .padding(start = 24.dp, end = 24.dp),
     ) {
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(70.dp))
 
         Text(
-            text = "MeTime",
-            style = TextStyle(
-                fontSize = 19.sp,
-                fontFamily = FontFamily(Font(R.font.raleway_light)),
-                fontWeight = FontWeight(700),
-                color = MaterialTheme.colorScheme.onSurface,
-                textAlign = TextAlign.Center,
-            )
-        )
-
-        Image(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(385.dp),
-            painter = painterResource(id = R.drawable.onboarding),
-            contentDescription = "image description",
-            contentScale = ContentScale.Fit
-        )
-
-        Spacer(modifier = Modifier.height(35.dp))
-
-        Text(
-            text = "Welcome to \nThe Gallery Salon!",
+            text = "Hey there!",
             style = TextStyle(
                 fontSize = 32.sp,
+                lineHeight = 41.6.sp,
                 fontFamily = FontFamily(Font(R.font.raleway_light)),
                 fontWeight = FontWeight(700),
                 color = MaterialTheme.colorScheme.onSurface,
-                textAlign = TextAlign.Center,
             )
         )
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(10.dp))
 
         Text(
-            text = "Follow the steps to schedule your next appointment with us.",
+            text = "Before schedule, please enter your account or create one!",
             style = TextStyle(
                 fontSize = 18.sp,
-                lineHeight = 22.sp,
+                lineHeight = 21.76.sp,
                 fontFamily = FontFamily(Font(R.font.raleway_light)),
                 fontWeight = FontWeight(500),
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -114,31 +80,27 @@ fun OnboardingScreen(
 
         Spacer(modifier = Modifier.weight(1.0f))
 
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(15.dp, Alignment.Start),
-            verticalAlignment = Alignment.Top,
-        ) {
+        Column(horizontalAlignment = CenterHorizontally) {
+
+            PrimaryButton(
+                modifier = Modifier.fillMaxWidth(),
+                buttonText = "Log In",
+                isEnabled = true,
+                isLoading = state.value.isLoading
+            ) {
+            }
 
             SecondaryButton(
-                modifier = Modifier.weight(1.0f),
+                modifier = Modifier,
                 buttonText = "Skip",
                 isEnabled = true,
                 isLoading = false
             ) {
             }
 
-            PrimaryButton(
-                modifier = Modifier.weight(1.0f),
-                buttonText = "Start",
-                isEnabled = true,
-                isLoading = false
-            ) {
-                navController.navigate(Screen.ChooseServiceScreen.route)
-            }
         }
 
         Spacer(modifier = Modifier.height(40.dp))
 
     }
 }
-
