@@ -1,4 +1,4 @@
-package com.faridnia.metime.presentation.nav_graph
+package com.faridnia.metime
 
 
 const val ONBOARDING_ROUTE = "onboarding_route"

@@ -6,16 +6,19 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.faridnia.metime.ONBOARDING_ROUTE
+import com.faridnia.metime.Screen
+import com.faridnia.metime.navigation.navigate
 import com.faridnia.metime.onboarding_presentation.presentaition.choose_expert.ChooseExpertScreen
 import com.faridnia.metime.onboarding_presentation.presentaition.choose_expert.ChooseExpertState
 import com.faridnia.metime.onboarding_presentation.presentaition.choose_service.ChooseServiceScreen
 import com.faridnia.metime.onboarding_presentation.presentaition.choose_service.ChooseServiceState
 import com.faridnia.metime.onboarding_presentation.presentaition.choose_service_type.ChooseServiceTypeScreen
 import com.faridnia.metime.onboarding_presentation.presentaition.choose_service_type.ChooseServiceTypeState
-import com.faridnia.metime.onboarding_presentation.presentaition.onboarding.OnboardingScreen
 import com.faridnia.metime.onboarding_presentation.presentaition.component.onboarding.OnboardingState
 import com.faridnia.metime.onboarding_presentation.presentaition.login_bottom_sheet.LoginBottomSheetScreen
 import com.faridnia.metime.onboarding_presentation.presentaition.login_bottom_sheet.LoginBottomSheetState
+import com.faridnia.metime.onboarding_presentation.presentaition.onboarding.OnboardingScreen
 
 fun NavGraphBuilder.onboardingNavGraph(
     navController: NavHostController,
@@ -26,7 +29,9 @@ fun NavGraphBuilder.onboardingNavGraph(
         composable(route = Screen.OnboardingScreen.route) {
             val state = remember { mutableStateOf(OnboardingState()) }
             OnboardingScreen(
-                state = state, onEvent = {}, navController = navController
+                state = state,
+                onEvent = {},
+                onNavigate = navController::navigate
             )
         }
 
