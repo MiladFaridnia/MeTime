@@ -25,14 +25,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import com.faridnia.core.R
+import com.faridnia.metime.core.util.UiEvent
 import com.faridnia.metime.data.getSampleExperts
 import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.component.ExpertItem
 import com.faridnia.metime.presentation.component.PagerIndicator
 import com.faridnia.metime.presentation.component.SecondaryButton
-import com.faridnia.core.R
 
 @LightAndDarkPreview
 @Composable
@@ -40,7 +39,7 @@ fun PreviewChooseExpertScreen() {
     ChooseExpertScreen(
         state = remember { mutableStateOf(ChooseExpertState()) },
         onEvent = {},
-        navController = rememberNavController()
+        onNavigate = { }
     )
 }
 
@@ -48,7 +47,7 @@ fun PreviewChooseExpertScreen() {
 fun ChooseExpertScreen(
     state: State<ChooseExpertState>,
     onEvent: (ChooseExpertEvent) -> Unit,
-    navController: NavController
+    onNavigate: (UiEvent.Navigate) -> Unit
 ) {
 
     Column(
