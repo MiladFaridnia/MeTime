@@ -34,9 +34,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.faridnia.core.R
+import com.faridnia.metime.Screen
+import com.faridnia.metime.core.util.UiEvent
 import com.faridnia.metime.data.getSampleServices
 import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.component.PhotoItem
@@ -45,18 +45,18 @@ import com.faridnia.metime.presentation.component.SecondaryButton
 @LightAndDarkPreview
 @Composable
 fun PreviewChooseServiceScreen() {
-        ChooseServiceScreen(
-            state = remember { mutableStateOf(ChooseServiceState()) },
-            onEvent = {},
-            navController = rememberNavController()
-        )
+    ChooseServiceScreen(
+        state = remember { mutableStateOf(ChooseServiceState()) },
+        onEvent = {},
+        onNavigate = {}
+    )
 }
 
 @Composable
 fun ChooseServiceScreen(
     state: State<ChooseServiceState>,
     onEvent: (ChooseServiceEvent) -> Unit,
-    navController: NavController
+    onNavigate: (UiEvent.Navigate) -> Unit
 ) {
 
     Column(
@@ -102,7 +102,7 @@ fun ChooseServiceScreen(
         ) {
             items(getSampleServices(), key = { it.id }) {
                 PhotoItem(it) {
-                  //  navController.navigate(Screen.ChooseServiceTypeScreen.route)
+                    onNavigate(UiEvent.Navigate(Screen.ChooseServiceTypeScreen.route))
                 }
             }
         }

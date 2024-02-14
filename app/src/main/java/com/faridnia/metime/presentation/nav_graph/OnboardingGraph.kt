@@ -38,7 +38,9 @@ fun NavGraphBuilder.onboardingNavGraph(
         composable(route = Screen.ChooseServiceScreen.route) {
             val state = remember { mutableStateOf(ChooseServiceState()) }
             ChooseServiceScreen(
-                state = state, onEvent = {}, navController = navController
+                state = state,
+                onEvent = {},
+                onNavigate = navController::navigate
             )
         }
 
@@ -46,7 +48,9 @@ fun NavGraphBuilder.onboardingNavGraph(
             val state =
                 remember { mutableStateOf(ChooseServiceTypeState()) }
             ChooseServiceTypeScreen(
-                state = state, onEvent = {}, navController = navController
+                state = state,
+                onEvent = {},
+                onNavigate = navController::navigate
             )
         }
 
@@ -54,7 +58,9 @@ fun NavGraphBuilder.onboardingNavGraph(
             val state =
                 remember { mutableStateOf(ChooseExpertState()) }
             ChooseExpertScreen(
-                state = state, onEvent = {}, navController = navController
+                state = state,
+                onEvent = {},
+                onNavigate = navController::navigate
             )
         }
 

@@ -24,9 +24,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.faridnia.core.R
+import com.faridnia.metime.Screen
+import com.faridnia.metime.core.util.UiEvent
 import com.faridnia.metime.data.getSampleServiceTypes
 import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.component.PagerIndicator
@@ -35,18 +35,18 @@ import com.faridnia.metime.presentation.component.ServiceTypeItem
 @LightAndDarkPreview
 @Composable
 fun PreviewChooseServiceScreen() {
-        ChooseServiceTypeScreen(
-            state = remember { mutableStateOf(ChooseServiceTypeState()) },
-            onEvent = {},
-            navController = rememberNavController()
-        )
+    ChooseServiceTypeScreen(
+        state = remember { mutableStateOf(ChooseServiceTypeState()) },
+        onEvent = {},
+        onNavigate = {}
+    )
 }
 
 @Composable
 fun ChooseServiceTypeScreen(
     state: State<ChooseServiceTypeState>,
     onEvent: (ChooseServiceTypeEvent) -> Unit,
-    navController: NavController
+    onNavigate: (UiEvent.Navigate) -> Unit
 ) {
 
     Column(
@@ -70,7 +70,7 @@ fun ChooseServiceTypeScreen(
 
         Spacer(modifier = Modifier.height(50.dp))
 
-          PagerIndicator(
+        PagerIndicator(
             selectedPageIndex = 2
         )
 
@@ -95,10 +95,10 @@ fun ChooseServiceTypeScreen(
             modifier = Modifier.padding(16.dp)
         ) {
             items(items = getSampleServiceTypes(), key = { it.id }) {
-                  ServiceTypeItem(
+                ServiceTypeItem(
                     it
                 ) {
-                   // navController.navigate(Screen.ChooseExpertScreen.route)
+                    onNavigate(UiEvent.Navigate(Screen.ChooseExpertScreen.route))
                 }
             }
         }
