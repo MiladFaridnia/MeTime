@@ -28,14 +28,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import com.faridnia.core.R
+import com.faridnia.metime.Screen
+import com.faridnia.metime.core.util.UiEvent
 import com.faridnia.metime.onboarding_presentation.presentaition.component.onboarding.OnboardingState
 import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.MeTimeTheme
 import com.faridnia.metime.presentation.component.PrimaryButton
 import com.faridnia.metime.presentation.component.SecondaryButton
-import com.faridnia.core.R
 
 
 @LightAndDarkPreview
@@ -45,7 +45,7 @@ fun PreviewOnboardingScreen() {
         OnboardingScreen(
             state = remember { mutableStateOf(OnboardingState()) },
             onEvent = {},
-            navController = rememberNavController()
+            onNavigate = {}
         )
     }
 }
@@ -54,7 +54,7 @@ fun PreviewOnboardingScreen() {
 fun OnboardingScreen(
     state: State<OnboardingState>,
     onEvent: (OnboardingEvent) -> Unit,
-    navController: NavController
+    onNavigate: (UiEvent.Navigate) -> Unit
 ) {
 
     Column(
@@ -134,7 +134,7 @@ fun OnboardingScreen(
                 isEnabled = true,
                 isLoading = false
             ) {
-                //navController.navigate(Screen.ChooseServiceScreen.route)
+                onNavigate(UiEvent.Navigate(Screen.ChooseServiceScreen.route))
             }
         }
 

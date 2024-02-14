@@ -8,6 +8,7 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.faridnia.metime.ONBOARDING_ROUTE
 
 typealias HideBackButton = Boolean
 typealias ActionBarTitle = String
@@ -17,14 +18,12 @@ fun NavGraph(
     navController: NavHostController,
     onNavigate: (ActionBarTitle?, HideBackButton) -> Unit,
 ) {
-
         NavHost(
             navController = navController,
             startDestination = ONBOARDING_ROUTE
         ) {
             onboardingNavGraph(navController, onNavigate)
         }
-
 }
 
 @Composable
