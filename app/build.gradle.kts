@@ -57,11 +57,11 @@ android {
 
     }
 
-  /*  packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }*/
+    /*  packaging {
+          resources {
+              excludes += "/META-INF/{AL2.0,LGPL2.1}"
+          }
+      }*/
 }
 
 dependencies {
@@ -79,9 +79,9 @@ dependencies {
     implementation(AndroidX.coreKtx)//"androidx.core:core-ktx:1.12.0"
     implementation(AndroidX.lifecycleRuntime)//"androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
 
-    implementation("androidx.navigation:navigation-runtime-ktx:2.7.6")
+    implementation(AndroidX.navigationRuntime)
 //    implementation("androidx.compose.material3:material3-android:1.2.0")
-    implementation("androidx.compose.material3:material3")
+    implementation(AndroidX.composeMaterial3)
 
     testImplementation(Testing.junit4)//"junit:junit:4.13.2"
     androidTestImplementation(Testing.junitAndroidExt)//"androidx.test.ext:junit:1.1.5"
