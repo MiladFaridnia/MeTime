@@ -1,13 +1,18 @@
 object Compose {
     const val composeVersion = "1.6.1"
-    const val composeCompilerVersion = "1.1.0-rc02"
+    const val composeCompilerVersion = "1.5.9"
 
-    const val material = "androidx.compose.material3:material3" //"androidx.compose.material:material:$composeVersion"
-   // const val ui = "androidx.compose.ui:ui:$composeVersion"
-    const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview"
+    const val composeMaterial3 = "androidx.compose.material3:material3:1.2.0" //"androidx.compose.material:material:$composeVersion"
+
+ // const val ui = "androidx.compose.ui:ui:$composeVersion"
+    const val uiTooling = "androidx.compose.ui:ui-tooling:$composeVersion"
+    const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:$composeVersion"
+    const val uiToolingPreviewAndroid = "androidx.compose.ui:ui-tooling-preview-android:$composeVersion"
+    const val uiGraphics = "androidx.compose.ui:ui-graphics"
     const val uiToolingManifest = "androidx.compose.ui:ui-test-manifest"
     const val runtime = "androidx.compose.runtime:runtime:$composeVersion"
-    //const val compiler = "androidx.compose.compiler:compiler:$composeCompilerVersion"
+    const val foundation = "androidx.compose.foundation:foundation-layout-android:$composeVersion"
+    const val compiler = "androidx.compose.compiler:compiler:$composeCompilerVersion"
 
     private const val navigationVersion = "2.4.0-beta02"
     const val navigation = "androidx.navigation:navigation-compose:$navigationVersion"

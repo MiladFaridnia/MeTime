@@ -53,7 +53,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.9"
+        kotlinCompilerExtensionVersion = Compose.composeCompilerVersion
 
     }
 
@@ -65,31 +65,27 @@ android {
 }
 
 dependencies {
-    "implementation"(project(Modules.core))
-    "implementation"(project(Modules.coreUi))
+    implementation(project(Modules.core))
+    implementation(project(Modules.coreUi))
 
-    "implementation"(project(Modules.bookingDomain))
-    "implementation"(project(Modules.bookingData))
-    "implementation"(project(Modules.bookingPresentation))
+    implementation(project(Modules.bookingDomain))
+    implementation(project(Modules.bookingData))
+    implementation(project(Modules.bookingPresentation))
 
-    "implementation"(project(Modules.onboardingData))
-    "implementation"(project(Modules.onboardingDomain))
-    "implementation"(project(Modules.onboardingPresentation))
+    implementation(project(Modules.onboardingData))
+    implementation(project(Modules.onboardingDomain))
+    implementation(project(Modules.onboardingPresentation))
 
     implementation(AndroidX.coreKtx)//"androidx.core:core-ktx:1.12.0"
     implementation(AndroidX.lifecycleRuntime)//"androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
 
     implementation(AndroidX.navigationRuntime)
 //    implementation("androidx.compose.material3:material3-android:1.2.0")
-    implementation(AndroidX.composeMaterial3)
 
-    testImplementation(Testing.junit4)//"junit:junit:4.13.2"
-    androidTestImplementation(Testing.junitAndroidExt)//"androidx.test.ext:junit:1.1.5"
-    androidTestImplementation(Testing.espresso)//"androidx.test.espresso:espresso-core:3.5.1"
-    androidTestImplementation(platform(Compose.bomeCompose))
-    androidTestImplementation(Testing.composeUiTest)
-    debugImplementation(Compose.uiToolingPreview)
-    debugImplementation(Compose.uiToolingManifest)
+    implementation(platform(Compose.bomeCompose))
+    implementation(Compose.uiToolingPreview)
+    implementation(Compose.uiToolingManifest)
+    implementation(Compose.composeMaterial3)
 
     // Retrofit
     implementation(Retrofit.retrofit)
@@ -98,9 +94,13 @@ dependencies {
     implementation(Retrofit.okHttpLoggingInterceptor)
 
     // Dagger - Hilt
-    implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
     kapt(DaggerHilt.androidXHiltCompiler)
+    implementation(DaggerHilt.hiltAndroid)
     implementation(DaggerHilt.androidXNavigationHiltCompiler)
 
+    testImplementation(Testing.junit4)//"junit:junit:4.13.2"
+    androidTestImplementation(Testing.espresso)//"androidx.test.espresso:espresso-core:3.5.1"
+    androidTestImplementation(Testing.junitAndroidExt)//"androidx.test.ext:junit:1.1.5"
+   // androidTestImplementation(Testing.composeUiTest)
 }

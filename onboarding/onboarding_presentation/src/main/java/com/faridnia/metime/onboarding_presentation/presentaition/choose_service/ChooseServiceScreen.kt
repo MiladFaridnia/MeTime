@@ -39,17 +39,20 @@ import com.faridnia.metime.Screen
 import com.faridnia.metime.core.util.UiEvent
 import com.faridnia.metime.data.getSampleServices
 import com.faridnia.metime.presentation.LightAndDarkPreview
+import com.faridnia.metime.presentation.MeTimeTheme
 import com.faridnia.metime.presentation.component.PhotoItem
 import com.faridnia.metime.presentation.component.SecondaryButton
 
 @LightAndDarkPreview
 @Composable
 fun PreviewChooseServiceScreen() {
-    ChooseServiceScreen(
-        state = remember { mutableStateOf(ChooseServiceState()) },
-        onEvent = {},
-        onNavigate = {}
-    )
+//    MeTimeTheme {
+        ChooseServiceScreen(
+            state = remember { mutableStateOf(ChooseServiceState()) },
+            onEvent = {},
+            onNavigate = {}
+        )
+//    }
 }
 
 @Composable
@@ -85,7 +88,8 @@ fun ChooseServiceScreen(
         Spacer(modifier = Modifier.height(40.dp))
 
         Text(
-            text = "Please, choose a service:", style = TextStyle(
+            text = "Please, choose a service:",
+            style = TextStyle(
                 fontSize = 24.sp,
                 lineHeight = 32.72.sp,
                 fontFamily = FontFamily(Font(R.font.raleway_light)),

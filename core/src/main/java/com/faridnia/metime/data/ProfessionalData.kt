@@ -1,11 +1,9 @@
 package com.faridnia.metime.data
 
-import androidx.compose.runtime.Immutable
 import com.faridnia.metime.getCurrentDateTime
 import java.util.Date
 import java.util.UUID
 
-@Immutable
 data class ProfessionalData(
     val id : String = UUID.randomUUID().toString(),
     val name: String,
@@ -14,7 +12,6 @@ data class ProfessionalData(
     val availableDays: List<AvailableDay>
 )
 
-@Immutable
 data class AvailableDay(
     val id : String = UUID.randomUUID().toString(),
     val date: Date,
