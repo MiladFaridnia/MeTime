@@ -5,6 +5,7 @@ object Compose {
     const val composeMaterial3 = "androidx.compose.material3:material3:1.2.0" //"androidx.compose.material:material:$composeVersion"
 
  // const val ui = "androidx.compose.ui:ui:$composeVersion"
+    const val uiTooling = "androidx.compose.ui:ui-tooling:$composeVersion"
     const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:$composeVersion"
     const val uiToolingPreviewAndroid = "androidx.compose.ui:ui-tooling-preview-android:$composeVersion"
     const val uiGraphics = "androidx.compose.ui:ui-graphics"

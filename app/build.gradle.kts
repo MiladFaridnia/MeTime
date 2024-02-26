@@ -53,7 +53,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.9"
+        kotlinCompilerExtensionVersion = Compose.composeCompilerVersion
 
     }
 
@@ -102,5 +102,5 @@ dependencies {
     testImplementation(Testing.junit4)//"junit:junit:4.13.2"
     androidTestImplementation(Testing.espresso)//"androidx.test.espresso:espresso-core:3.5.1"
     androidTestImplementation(Testing.junitAndroidExt)//"androidx.test.ext:junit:1.1.5"
-    androidTestImplementation(Testing.composeUiTest)
+   // androidTestImplementation(Testing.composeUiTest)
 }

@@ -19,7 +19,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion "1.5.9"//Compose.composeCompilerVersion
+        kotlinCompilerExtensionVersion Compose.composeCompilerVersion//Compose.composeCompilerVersion
     }
     buildTypes {
         release {
@@ -45,8 +45,6 @@ dependencies {
 
     implementation Compose.compiler
     implementation Compose.ui
-    implementation Compose.uiToolingPreview
-    implementation Compose.uiToolingPreviewAndroid
     implementation Compose.hiltNavigationCompose
     implementation Compose.composeMaterial3
     implementation Compose.runtime
@@ -54,6 +52,9 @@ dependencies {
     implementation Compose.viewModelCompose
     implementation Compose.activityCompose
     implementation Compose.uiGraphics
+    implementation Compose.uiToolingPreviewAndroid
+    implementation Compose.uiToolingPreview
+    debugImplementation Compose.uiTooling
 
     kapt DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
@@ -72,7 +73,7 @@ dependencies {
     androidTestImplementation Testing.truth
     androidTestImplementation Testing.coroutines
     androidTestImplementation Testing.turbine
-    androidTestImplementation Testing.composeUiTest
+   // androidTestImplementation Testing.composeUiTest
     androidTestImplementation Testing.mockk
     androidTestImplementation Testing.mockWebServer
     androidTestImplementation Testing.hiltTesting
