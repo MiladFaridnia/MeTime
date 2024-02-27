@@ -19,7 +19,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion Compose.composeCompilerVersion//Compose.composeCompilerVersion
+        kotlinCompilerExtensionVersion Compose.composeCompilerVersion
     }
     buildTypes {
         release {
@@ -73,7 +73,6 @@ dependencies {
     androidTestImplementation Testing.truth
     androidTestImplementation Testing.coroutines
     androidTestImplementation Testing.turbine
-   // androidTestImplementation Testing.composeUiTest
     androidTestImplementation Testing.mockk
     androidTestImplementation Testing.mockWebServer
     androidTestImplementation Testing.hiltTesting

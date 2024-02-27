@@ -23,6 +23,7 @@ fun NavGraph(
             startDestination = ONBOARDING_ROUTE
         ) {
             onboardingNavGraph(navController, onNavigate)
+            bookingNavGraph(navController, onNavigate)
         }
 }
 
