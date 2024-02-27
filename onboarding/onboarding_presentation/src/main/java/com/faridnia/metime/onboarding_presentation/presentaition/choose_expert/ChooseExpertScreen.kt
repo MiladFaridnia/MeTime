@@ -26,6 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.faridnia.core.R
+import com.faridnia.metime.Screen
 import com.faridnia.metime.core.util.UiEvent
 import com.faridnia.metime.data.getSampleExperts
 import com.faridnia.metime.presentation.LightAndDarkPreview
@@ -39,7 +40,7 @@ fun PreviewChooseExpertScreen() {
     ChooseExpertScreen(
         state = remember { mutableStateOf(ChooseExpertState()) },
         onEvent = {},
-        onNavigate = { }
+        onNavigate = {}
     )
 }
 
@@ -96,7 +97,9 @@ fun ChooseExpertScreen(
             modifier = Modifier.padding(16.dp)
         ) {
             items(items = getSampleExperts(), key = { it.id }) {
-                ExpertItem(it)
+                ExpertItem(it) {
+                    onNavigate(UiEvent.Navigate(Screen.ProfessionalsCalendarScreen.route))
+                }
             }
         }
 

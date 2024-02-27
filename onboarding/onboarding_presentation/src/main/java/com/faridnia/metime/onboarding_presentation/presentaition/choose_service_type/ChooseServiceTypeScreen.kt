@@ -95,9 +95,7 @@ fun ChooseServiceTypeScreen(
             modifier = Modifier.padding(16.dp)
         ) {
             items(items = getSampleServiceTypes(), key = { it.id }) {
-                ServiceTypeItem(
-                    it
-                ) {
+                ServiceTypeItem(it) {
                     onNavigate(UiEvent.Navigate(Screen.ChooseExpertScreen.route))
                 }
             }
