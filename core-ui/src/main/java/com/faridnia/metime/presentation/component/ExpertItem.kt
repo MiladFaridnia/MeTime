@@ -1,6 +1,7 @@
 package com.faridnia.metime.presentation.component
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -33,15 +34,23 @@ import com.faridnia.metime.presentation.LightAndDarkPreview
 fun PreviewExpertItem() {
     MaterialTheme {
         ExpertItem(
-            getSampleExperts().first()
+            expert = getSampleExperts().first(),
+            onClick = {}
         )
     }
 }
 
 @Composable
-fun ExpertItem(expert: Expert) {
+fun ExpertItem(
+    expert: Expert,
+    onClick: (expert: Expert) -> Unit
+) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable {
+                onClick.invoke(expert)
+            },
         horizontalArrangement = Arrangement.spacedBy(5.dp, Alignment.Start),
         verticalAlignment = Alignment.CenterVertically,
     ) {
