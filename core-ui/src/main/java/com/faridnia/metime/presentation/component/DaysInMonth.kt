@@ -1,6 +1,7 @@
 package com.faridnia.metime.presentation.component
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,8 +25,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.faridnia.core.R
-import com.faridnia.metime.data.AvailableDay
+import com.faridnia.metime.core.data.model.AvailableDay
+import com.faridnia.metime.core.data.model.getSampleAvailableDays
 import com.faridnia.metime.formatDateToDayAndDayOfWeekInTwoLines
+import com.faridnia.metime.presentation.LightAndDarkPreview
 
 @Composable
 fun DaysInMonthComponent(availableDays: List<AvailableDay>) {

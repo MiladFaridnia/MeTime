@@ -1,4 +1,4 @@
-package com.faridnia.metime.data
+package com.faridnia.metime.core.data.model
 
 
 import com.faridnia.metime.getCurrentDateTime

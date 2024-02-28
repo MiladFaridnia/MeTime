@@ -27,8 +27,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.faridnia.core.R
-import com.faridnia.metime.data.ServiceType
-import com.faridnia.metime.data.getSampleServiceTypes
+import com.faridnia.metime.core.data.model.ServiceType
+import com.faridnia.metime.core.data.model.getSampleServiceTypes
 import com.faridnia.metime.presentation.LightAndDarkPreview
 
 @LightAndDarkPreview

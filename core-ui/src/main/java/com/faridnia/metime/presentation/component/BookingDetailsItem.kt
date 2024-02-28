@@ -17,8 +17,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.faridnia.core.R
-import com.faridnia.metime.data.SuccessfulBookingData
-import com.faridnia.metime.data.getSampleSuccessfulBookingData
+import com.faridnia.metime.core.data.model.SuccessfulBookingData
+import com.faridnia.metime.core.data.model.getSampleSuccessfulBookingData
 import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.formatTimeToDayInWeek
 

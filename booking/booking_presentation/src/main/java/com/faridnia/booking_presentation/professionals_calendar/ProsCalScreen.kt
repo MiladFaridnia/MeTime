@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.faridnia.core.R
 import com.faridnia.metime.core.util.UiEvent
-import com.faridnia.metime.data.getSampleProfessionalData
+import com.faridnia.metime.core.data.model.getSampleProfessionalData
 import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.MeTimeTheme
 import com.faridnia.metime.presentation.component.DaysInMonthComponent

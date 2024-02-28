@@ -1,6 +1,6 @@
 package com.faridnia.booking_presentation.successful_booking
 
-import com.faridnia.metime.data.SuccessfulBookingData
+import com.faridnia.metime.core.data.model.SuccessfulBookingData
 
 class SuccessfulBookingState(
     val isLoading: Boolean = false,
