@@ -20,7 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.faridnia.core.R
-import com.faridnia.metime.data.AvailableHour
+import com.faridnia.metime.core.data.model.AvailableHour
 import com.faridnia.metime.formatTimeToHourInDay
 
 

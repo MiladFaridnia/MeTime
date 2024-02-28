@@ -10,7 +10,7 @@ import com.faridnia.booking_presentation.professionals_calendar.ProsCalState
 import com.faridnia.booking_presentation.professionals_calendar.ProsCalendarScreen
 import com.faridnia.metime.BOOKING_ROUTE
 import com.faridnia.metime.Screen
-import com.faridnia.metime.data.getSampleProfessionalData
+import com.faridnia.metime.core.data.model.getSampleProfessionalData
 import com.faridnia.metime.navigation.navigate
 
 fun NavGraphBuilder.bookingNavGraph(

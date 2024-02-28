@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.sp
 import com.faridnia.core.R
 import com.faridnia.metime.Screen
 import com.faridnia.metime.core.util.UiEvent
-import com.faridnia.metime.data.getSampleExperts
+import com.faridnia.metime.core.data.model.getSampleExperts
 import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.component.ExpertItem
 import com.faridnia.metime.presentation.component.PagerIndicator

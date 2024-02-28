@@ -19,6 +19,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.faridnia.core.R
+import com.faridnia.metime.presentation.LightAndDarkPreview
+
+@LightAndDarkPreview
+@Composable
+fun previewDateItem() {
+    DateItem(dateString = "28 \nTue")
+}
 
 @Composable
 fun DateItem(dateString: String) {
@@ -27,7 +34,7 @@ fun DateItem(dateString: String) {
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .border(
-                width = 1.dp,
+                width = 0.5.dp,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 shape = RoundedCornerShape(size = 10.dp)
             )

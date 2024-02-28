@@ -37,9 +37,9 @@ import androidx.navigation.compose.rememberNavController
 import com.faridnia.core.R
 import com.faridnia.metime.presentation.LightAndDarkPreview
 import com.faridnia.metime.presentation.component.BookingDetailsItem
-import com.faridnia.metime.data.SuccessfulBookingData
+import com.faridnia.metime.core.data.model.SuccessfulBookingData
 import com.faridnia.booking_presentation.successful_booking.SuccessfulBookingState
-import com.faridnia.metime.data.getSampleSuccessfulBookingData
+import com.faridnia.metime.core.data.model.getSampleSuccessfulBookingData
 
 @LightAndDarkPreview
 @Composable
