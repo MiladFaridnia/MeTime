@@ -107,10 +107,10 @@ fun DaysInMonthComponent(
             LazyRow(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                items(items = getMonths(), key = { it.first }) { monthsNamesTriple ->
+                items(items = getMonths(), key = { it.number }) { monthsNamesTriple ->
                     DateItem(
-                        itemState = getItemState(selectedMonth.value, monthsNamesTriple.third),
-                        dateString = monthsNamesTriple.third,
+                        itemState = getItemState(selectedMonth.value, monthsNamesTriple.shortName),
+                        dateString = monthsNamesTriple.shortName,
                         onItemSelectedClick = {
                             selectedMonth.value = it
                         })
@@ -140,19 +140,27 @@ fun getItemState(selectedMonth: String, monthName: String): DateItemState {
     }
 }
 
-fun getMonths(): List<Triple<Int, String, String>> {
+fun getMonths(): List<Month> {
     return listOf(
-        Triple(1, "January", "Jan"),
-        Triple(2, "February", "Feb"),
-        Triple(3, "March", "Mar"),
-        Triple(4, "April", "Apr"),
-        Triple(5, "May", "May"),
-        Triple(6, "June", "Jun"),
-        Triple(7, "July", "Jul"),
-        Triple(8, "August", "Aug"),
-        Triple(9, "September", "Sep"),
-        Triple(10, "October", "Oct"),
-        Triple(11, "November", "Nov"),
-        Triple(12, "December", "Dec"),
+        Month(1, "January", "Jan"),
+        Month(2, "February", "Feb"),
+        Month(3, "March", "Mar"),
+        Month(4, "April", "Apr"),
+        Month(5, "May", "May"),
+        Month(6, "June", "Jun"),
+        Month(7, "July", "Jul"),
+        Month(8, "August", "Aug"),
+        Month(9, "September", "Sep"),
+        Month(10, "October", "Oct"),
+        Month(11, "November", "Nov"),
+        Month(12, "December", "Dec"),
     )
 }
+
+data class Month(
+    val number: Int,
+    val fullName: String,
+    val shortName: String,
+    val isEnabled: Boolean = true,
+    val isSelected: Boolean = false
+)
