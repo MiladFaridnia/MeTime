@@ -42,12 +42,13 @@ fun PreviewProsCalendarScreen() {
             state = remember {
                 mutableStateOf(
                     ProsCalState(
+                        selectedMonth = "Jan",
                         professionalData = getSampleProfessionalData()
                     )
                 )
             },
             onEvent = {},
-            onNavigate = { }
+            onNavigate = {}
         )
     }
 }
@@ -97,7 +98,9 @@ fun ProsCalendarScreen(
         Spacer(modifier = Modifier.height(20.dp))
 
         DaysInMonthComponent(
-            state.value.professionalData.availableDays
+            monthName = state.value.selectedMonth,
+            availableDays = state.value.professionalData.availableDays,
+            onMonthSelectedClick = {/*onEvent()*/ }
         )
 
         Spacer(modifier = Modifier.height(24.dp))

@@ -5,5 +5,6 @@ import com.faridnia.metime.core.data.model.ProfessionalData
 data class ProsCalState(
     val isLoading: Boolean = false,
     val error: String = "",
-    val professionalData : ProfessionalData
+    val professionalData: ProfessionalData,
+    val selectedMonth: String = ""
 )

@@ -50,7 +50,9 @@ fun HoursInDayComponent(availableHours: List<AvailableHour>) {
             columns = GridCells.Fixed(2)
         ) {
             items(items = availableHours, key = { it.id }) {
-                DateItem(formatTimeToHourInDay(it.date))
+                DateItem(
+                    dateString = formatTimeToHourInDay(it.date),
+                    onItemSelectedClick = {})
             }
         }
     }
