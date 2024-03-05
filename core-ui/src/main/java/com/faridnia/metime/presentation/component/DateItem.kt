@@ -58,8 +58,10 @@ fun DateItem(
             .width(63.dp)
             .padding(8.dp)
             .clickable {
-                onItemSelectedClick(dateString)
-                isSelected.value = isSelected.value.not()
+                if (itemState != DateItemState.DeActive) {
+                    onItemSelectedClick(dateString)
+                    isSelected.value = isSelected.value.not()
+                }
             }
     ) {
         Text(
@@ -82,8 +84,7 @@ private fun getBorderColor(itemState: DateItemState) = when (itemState) {
     is DateItemState.Default -> MaterialTheme.colorScheme.onSurface
 }
 
-
-sealed class DateItemState() {
+sealed class DateItemState {
     data object Selected : DateItemState()
     data object DeActive : DateItemState()
     data object Default : DateItemState()

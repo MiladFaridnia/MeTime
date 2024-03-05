@@ -107,10 +107,10 @@ fun DaysInMonthComponent(
             LazyRow(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                items(items = getMonths(), key = { it.number }) { monthsNamesTriple ->
+                items(items = getMonths(), key = { it.number }) { month ->
                     DateItem(
-                        itemState = getItemState(selectedMonth.value, monthsNamesTriple.shortName),
-                        dateString = monthsNamesTriple.shortName,
+                        itemState = getItemState(selectedMonth.value, month),
+                        dateString = month.shortName,
                         onItemSelectedClick = {
                             selectedMonth.value = it
                         })
@@ -132,8 +132,10 @@ fun DaysInMonthComponent(
     }
 }
 
-fun getItemState(selectedMonth: String, monthName: String): DateItemState {
-    return if (selectedMonth == monthName) {
+fun getItemState(selectedMonth: String, month: Month): DateItemState {
+    return if (month.isEnabled.not()) {
+        DateItemState.DeActive
+    } else if (selectedMonth == month.shortName) {
         DateItemState.Selected
     } else {
         DateItemState.Default
@@ -142,18 +144,18 @@ fun getItemState(selectedMonth: String, monthName: String): DateItemState {
 
 fun getMonths(): List<Month> {
     return listOf(
-        Month(1, "January", "Jan"),
+        Month(1, "January", "Jan", isEnabled = false),
         Month(2, "February", "Feb"),
         Month(3, "March", "Mar"),
-        Month(4, "April", "Apr"),
-        Month(5, "May", "May"),
+        Month(4, "April", "Apr", isEnabled = false),
+        Month(5, "May", "May", isEnabled = false),
         Month(6, "June", "Jun"),
         Month(7, "July", "Jul"),
         Month(8, "August", "Aug"),
         Month(9, "September", "Sep"),
         Month(10, "October", "Oct"),
         Month(11, "November", "Nov"),
-        Month(12, "December", "Dec"),
+        Month(12, "December", "Dec")
     )
 }
 
