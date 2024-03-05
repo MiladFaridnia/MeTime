@@ -11,6 +11,7 @@ import com.faridnia.booking_presentation.professionals_calendar.ProsCalendarScre
 import com.faridnia.metime.BOOKING_ROUTE
 import com.faridnia.metime.Screen
 import com.faridnia.metime.core.data.model.getSampleProfessionalData
+import com.faridnia.metime.getCurrentMonthName
 import com.faridnia.metime.navigation.navigate
 
 fun NavGraphBuilder.bookingNavGraph(
@@ -24,6 +25,7 @@ fun NavGraphBuilder.bookingNavGraph(
                 remember {
                     mutableStateOf(
                         ProsCalState(
+                            selectedMonth = getCurrentMonthName(),
                             professionalData = getSampleProfessionalData()
                         )
                     )
@@ -34,11 +36,11 @@ fun NavGraphBuilder.bookingNavGraph(
                 onNavigate = navController::navigate
             )
         }
-/*
-        composable(route = Screen.LoginBottomSheetScreen.route) {
-            val state = remember { mutableStateOf(LoginBottomSheetState()) }
-            LoginBottomSheetScreen(state = state, navController = navController)
-        }*/
+        /*
+                composable(route = Screen.LoginBottomSheetScreen.route) {
+                    val state = remember { mutableStateOf(LoginBottomSheetState()) }
+                    LoginBottomSheetScreen(state = state, navController = navController)
+                }*/
 
     }
 }

@@ -38,4 +38,32 @@ fun formatTimeToDayInWeek(date: Date): String {
     return outputDateFormat.format(date)
 }
 
+fun getCurrentDay(): Int {
+    return Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+}
 
+fun getCurrentMonth(): Int {
+    return Calendar.getInstance().get(Calendar.MONTH)
+}
+
+fun getCurrentYer(): Int {
+    return Calendar.getInstance().get(Calendar.YEAR)
+}
+
+fun getCurrentMonthName(): String {
+    return when (getCurrentMonth()) {
+        1 -> "Jan"
+        2 -> "Feb"
+        3 -> "Mar"
+        4 -> "Apr"
+        5 -> "May"
+        6 -> "Jun"
+        7 -> "Jul"
+        8 -> "Aug"
+        9 -> "Sep"
+        10 -> "Oct"
+        11 -> "Nov"
+        12 -> "Dec"
+        else -> ""
+    }
+}
