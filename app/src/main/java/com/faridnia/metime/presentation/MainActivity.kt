@@ -17,11 +17,27 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.faridnia.metime.presentation.nav_graph.NavGraph
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.analytics
+import com.google.firebase.analytics.logEvent
+import com.google.firebase.Firebase
+
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
+
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        firebaseAnalytics = Firebase.analytics
+
+        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
+            param(FirebaseAnalytics.Param.SCREEN_NAME, screenName)
+            param(FirebaseAnalytics.Param.SCREEN_CLASS, "MainActivity")
+        }
+
         setContent {
             MeTimeTheme {
 
@@ -48,6 +64,7 @@ class MainActivity : ComponentActivity() {
                                 .padding(values)
                         ) {
                             NavGraph(
+                                firebaseAnalytics = firebaseAnalytics,
                                 navController = navController,
                             ) { title, hideBackButton ->
                                 actionBarTitle = title ?: ""

@@ -9,22 +9,28 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.faridnia.metime.ONBOARDING_ROUTE
+import com.google.firebase.analytics.FirebaseAnalytics
 
 typealias HideBackButton = Boolean
 typealias ActionBarTitle = String
 
 @Composable
 fun NavGraph(
+    firebaseAnalytics: FirebaseAnalytics,
     navController: NavHostController,
     onNavigate: (ActionBarTitle?, HideBackButton) -> Unit,
 ) {
-        NavHost(
-            navController = navController,
-            startDestination = ONBOARDING_ROUTE
-        ) {
-            onboardingNavGraph(navController, onNavigate)
-            bookingNavGraph(navController, onNavigate)
-        }
+    NavHost(
+        navController = navController,
+        startDestination = ONBOARDING_ROUTE
+    ) {
+        onboardingNavGraph(
+            firebaseAnalytics,
+            navController,
+            onNavigate
+        )
+        bookingNavGraph(navController, onNavigate)
+    }
 }
 
 @Composable
