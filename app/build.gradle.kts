@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
+    id("com.google.gms.google-services")
+
 }
 
 android {
@@ -103,10 +105,10 @@ dependencies {
     androidTestImplementation(Testing.junitAndroidExt)//"androidx.test.ext:junit:1.1.5"
    // androidTestImplementation(Testing.composeUiTest)
 
-    implementation(platform("com.google.firebase:firebase-bom:32.7.3"))
+    implementation(platform(Google.fireBaseBom))
 
     // Add the dependency for the Analytics library
     // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation("com.google.firebase:firebase-analytics")
+    implementation(Google.firebaseAnalytics)
 
 }

@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.faridnia.metime" />
+                  <option name="mobileSdkAppId" value="1:372128256223:android:dd52e9add1573e7a3e196a" />
+                  <option name="projectId" value="me-time-db50d" />
+                  <option name="projectNumber" value="372128256223" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
