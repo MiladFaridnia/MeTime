@@ -31,7 +31,7 @@ fun NavGraphBuilder.onboardingNavGraph(
 
         composable(route = Screen.OnboardingScreen.route) {
 
-            logScreenView(firebaseAnalytics ,Screen.OnboardingScreen.title ?: Screen.OnboardingScreen.route)
+            logScreenView(firebaseAnalytics, Screen.OnboardingScreen.route)
 
             val state = remember { mutableStateOf(OnboardingState()) }
             OnboardingScreen(
@@ -43,7 +43,7 @@ fun NavGraphBuilder.onboardingNavGraph(
 
         composable(route = Screen.ChooseServiceScreen.route) {
 
-            logScreenView(firebaseAnalytics ,Screen.ChooseServiceScreen.title ?: Screen.ChooseServiceScreen.route)
+            logScreenView(firebaseAnalytics, Screen.ChooseServiceScreen.route)
 
 
             val state = remember { mutableStateOf(ChooseServiceState()) }
@@ -56,7 +56,7 @@ fun NavGraphBuilder.onboardingNavGraph(
 
         composable(route = Screen.ChooseServiceTypeScreen.route) {
 
-            logScreenView(firebaseAnalytics ,Screen.ChooseServiceTypeScreen.title ?: Screen.ChooseServiceTypeScreen.route)
+            logScreenView(firebaseAnalytics, Screen.ChooseServiceTypeScreen.route)
 
             val state =
                 remember { mutableStateOf(ChooseServiceTypeState()) }
@@ -69,7 +69,7 @@ fun NavGraphBuilder.onboardingNavGraph(
 
         composable(route = Screen.ChooseExpertScreen.route) {
 
-            logScreenView(firebaseAnalytics ,Screen.ChooseExpertScreen.title ?: Screen.ChooseExpertScreen.route)
+            logScreenView(firebaseAnalytics, Screen.ChooseExpertScreen.route)
 
             val state =
                 remember { mutableStateOf(ChooseExpertState()) }
@@ -82,7 +82,7 @@ fun NavGraphBuilder.onboardingNavGraph(
 
         composable(route = Screen.LoginBottomSheetScreen.route) {
 
-            logScreenView(firebaseAnalytics ,Screen.LoginBottomSheetScreen.title ?: Screen.LoginBottomSheetScreen.route)
+            logScreenView(firebaseAnalytics, Screen.LoginBottomSheetScreen.route)
 
             val state = remember { mutableStateOf(LoginBottomSheetState()) }
             LoginBottomSheetScreen(state = state, navController = navController)
@@ -91,8 +91,8 @@ fun NavGraphBuilder.onboardingNavGraph(
     }
 }
 
-private fun logScreenView(firebaseAnalytics: FirebaseAnalytics , screenTitle : String) {
-    firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
+private fun logScreenView(firebaseAnalytics: FirebaseAnalytics, screenTitle: String) {
+    firebaseAnalytics.logEvent(screenTitle) {
         param(
             FirebaseAnalytics.Param.SCREEN_NAME,
             screenTitle
