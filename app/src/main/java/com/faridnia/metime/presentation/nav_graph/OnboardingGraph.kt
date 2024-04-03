@@ -19,8 +19,8 @@ import com.faridnia.metime.onboarding_presentation.presentaition.component.onboa
 import com.faridnia.metime.onboarding_presentation.presentaition.login_bottom_sheet.LoginBottomSheetScreen
 import com.faridnia.metime.onboarding_presentation.presentaition.login_bottom_sheet.LoginBottomSheetState
 import com.faridnia.metime.onboarding_presentation.presentaition.onboarding.OnboardingScreen
+import com.faridnia.metime.util.FirebaseUtils
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.analytics.logEvent
 
 fun NavGraphBuilder.onboardingNavGraph(
     firebaseAnalytics: FirebaseAnalytics,
@@ -31,7 +31,7 @@ fun NavGraphBuilder.onboardingNavGraph(
 
         composable(route = Screen.OnboardingScreen.route) {
 
-            logScreenView(firebaseAnalytics, Screen.OnboardingScreen.route)
+            FirebaseUtils().logScreenView(firebaseAnalytics, Screen.OnboardingScreen.route)
 
             val state = remember { mutableStateOf(OnboardingState()) }
             OnboardingScreen(
@@ -43,7 +43,7 @@ fun NavGraphBuilder.onboardingNavGraph(
 
         composable(route = Screen.ChooseServiceScreen.route) {
 
-            logScreenView(firebaseAnalytics, Screen.ChooseServiceScreen.route)
+            FirebaseUtils().logScreenView(firebaseAnalytics, Screen.ChooseServiceScreen.route)
 
 
             val state = remember { mutableStateOf(ChooseServiceState()) }
@@ -56,7 +56,7 @@ fun NavGraphBuilder.onboardingNavGraph(
 
         composable(route = Screen.ChooseServiceTypeScreen.route) {
 
-            logScreenView(firebaseAnalytics, Screen.ChooseServiceTypeScreen.route)
+            FirebaseUtils().logScreenView(firebaseAnalytics, Screen.ChooseServiceTypeScreen.route)
 
             val state =
                 remember { mutableStateOf(ChooseServiceTypeState()) }
@@ -69,7 +69,7 @@ fun NavGraphBuilder.onboardingNavGraph(
 
         composable(route = Screen.ChooseExpertScreen.route) {
 
-            logScreenView(firebaseAnalytics, Screen.ChooseExpertScreen.route)
+            FirebaseUtils().logScreenView(firebaseAnalytics, Screen.ChooseExpertScreen.route)
 
             val state =
                 remember { mutableStateOf(ChooseExpertState()) }
@@ -82,20 +82,11 @@ fun NavGraphBuilder.onboardingNavGraph(
 
         composable(route = Screen.LoginBottomSheetScreen.route) {
 
-            logScreenView(firebaseAnalytics, Screen.LoginBottomSheetScreen.route)
+            FirebaseUtils().logScreenView(firebaseAnalytics, Screen.LoginBottomSheetScreen.route)
 
             val state = remember { mutableStateOf(LoginBottomSheetState()) }
             LoginBottomSheetScreen(state = state, navController = navController)
         }
 
-    }
-}
-
-private fun logScreenView(firebaseAnalytics: FirebaseAnalytics, screenTitle: String) {
-    firebaseAnalytics.logEvent(screenTitle) {
-        param(
-            FirebaseAnalytics.Param.SCREEN_NAME,
-            screenTitle
-        )
     }
 }

@@ -13,12 +13,17 @@ import com.faridnia.metime.Screen
 import com.faridnia.metime.core.data.model.getSampleProfessionalData
 import com.faridnia.metime.getCurrentMonthName
 import com.faridnia.metime.navigation.navigate
+import com.faridnia.metime.util.FirebaseUtils
+import com.google.firebase.analytics.FirebaseAnalytics
 
 fun NavGraphBuilder.bookingNavGraph(
+    firebaseAnalytics: FirebaseAnalytics,
     navController: NavHostController,
     onNavigate: (ActionBarTitle?, HideBackButton) -> Unit,
 ) {
     navigation(startDestination = Screen.ProfessionalsCalendarScreen.route, route = BOOKING_ROUTE) {
+
+        FirebaseUtils().logScreenView(firebaseAnalytics, Screen.ProfessionalsCalendarScreen.route)
 
         composable(route = Screen.ProfessionalsCalendarScreen.route) {
             val state =

@@ -29,7 +29,11 @@ fun NavGraph(
             navController,
             onNavigate
         )
-        bookingNavGraph(navController, onNavigate)
+        bookingNavGraph(
+            firebaseAnalytics,
+            navController,
+            onNavigate
+        )
     }
 }
 
