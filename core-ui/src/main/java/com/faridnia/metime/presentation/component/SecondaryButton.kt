@@ -52,8 +52,8 @@ fun SecondaryButton(
             .background(
                 color =  MaterialTheme.colorScheme.background,
                 shape = RoundedCornerShape(size = 10.dp)
-            )
-            .padding(start = 10.dp, top = 10.dp, end = 10.dp, bottom = 10.dp),
+            ),
+            //.padding(start = 10.dp, top = 10.dp, end = 10.dp, bottom = 10.dp),
         colors = handleEnableButtonColors(isEnabled),
         enabled = true
     ) {

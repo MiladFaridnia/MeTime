@@ -80,7 +80,7 @@ fun DateItem(
 @Composable
 private fun getBorderColor(itemState: DateItemState) = when (itemState) {
     is DateItemState.Selected -> MaterialTheme.colorScheme.primary
-    is DateItemState.DeActive -> MaterialTheme.colorScheme.onSurfaceVariant
+    is DateItemState.DeActive -> MaterialTheme.colorScheme.inverseOnSurface
     is DateItemState.Default -> MaterialTheme.colorScheme.onSurface
 }
 
