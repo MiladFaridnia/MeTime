@@ -68,11 +68,11 @@ fun ProsCalendarScreen(
             .padding(start = 24.dp, end = 24.dp),
     ) {
 
-        Spacer(modifier = Modifier.height(70.dp))
+        Spacer(modifier = Modifier.height(40.dp))
 
         ProfileComponent(state.value.professionalData.name)
 
-        Spacer(modifier = Modifier.height(50.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         HorizontalDivider(
             modifier = Modifier
@@ -85,7 +85,7 @@ fun ProsCalendarScreen(
         Spacer(modifier = Modifier.height(20.dp))
 
         Text(
-            text = "Select date & time ", style = TextStyle(
+            text = "Select date and time ", style = TextStyle(
                 fontSize = 24.sp,
                 lineHeight = 32.72.sp,
                 fontFamily = FontFamily(Font(R.font.raleway_light)),

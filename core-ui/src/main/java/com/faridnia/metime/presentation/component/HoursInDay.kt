@@ -21,15 +21,26 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.faridnia.core.R
 import com.faridnia.metime.core.data.model.AvailableHour
+import com.faridnia.metime.core.data.model.getSampleAvailableHours
 import com.faridnia.metime.formatTimeToHourInDay
+import com.faridnia.metime.presentation.LightAndDarkPreview
+import com.faridnia.metime.presentation.MeTimeTheme
 
+
+@Composable
+@LightAndDarkPreview
+fun previewHourInDayComponent(){
+    MeTimeTheme {
+        HoursInDayComponent(availableHours = getSampleAvailableHours())
+    }
+}
 
 @Composable
 fun HoursInDayComponent(availableHours: List<AvailableHour>) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .height(160.dp),
+            .height(170.dp),
     ) {
         Text(
             text = "Availability",
@@ -42,7 +53,7 @@ fun HoursInDayComponent(availableHours: List<AvailableHour>) {
             )
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(5.dp))
 
         LazyVerticalGrid(
             verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -55,5 +66,6 @@ fun HoursInDayComponent(availableHours: List<AvailableHour>) {
                     onItemSelectedClick = {})
             }
         }
+
     }
 }

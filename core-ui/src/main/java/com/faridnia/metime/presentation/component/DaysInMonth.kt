@@ -40,6 +40,7 @@ fun PreviewDaysInMonthComponent() {
     MeTimeTheme {
         DaysInMonthComponent(
             monthName = "October",
+            isMothVisible = true,
             availableDays = getSampleAvailableDays(),
             onMonthSelectedClick = {}
         )
@@ -49,12 +50,13 @@ fun PreviewDaysInMonthComponent() {
 @Composable
 fun DaysInMonthComponent(
     monthName: String,
+    isMothVisible: Boolean = false,
     availableDays: List<AvailableDay>,
     onMonthSelectedClick: (String) -> Unit
 ) {
 
     val onMonthVisible = remember {
-        mutableStateOf(false)
+        mutableStateOf(isMothVisible)
     }
 
     val selectedMonth = remember {
@@ -101,7 +103,7 @@ fun DaysInMonthComponent(
             )
         }
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(5.dp))
 
         if (onMonthVisible.value) {
             LazyRow(
@@ -118,7 +120,7 @@ fun DaysInMonthComponent(
             }
         }
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(5.dp))
 
         LazyRow(
             horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -129,6 +131,9 @@ fun DaysInMonthComponent(
                     onItemSelectedClick = {})
             }
         }
+
+        Spacer(modifier = Modifier.height(10.dp))
+
     }
 }
 
